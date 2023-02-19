@@ -22,14 +22,14 @@ Compatibility with core CKAN versions:
 ## Installation
 
 **TODO:** Add any additional install steps to the list below.
-   For example installing any non-Python dependencies or adding any required
-   config settings.
+For example installing any non-Python dependencies or adding any required
+config settings.
 
 To install ckanext-wprdc_theme:
 
 1. Activate your CKAN virtual environment, for example:
 
-     . /usr/lib/ckan/default/bin/activate
+    . /usr/lib/ckan/default/bin/activate
 
 2. Clone the source and install it on the virtualenv
 
@@ -67,7 +67,15 @@ do:
     cd ckanext-wprdc_theme
     python setup.py develop
     pip install -r dev-requirements.txt
+    
+To work on styling, you'll need the TailwindCSS cli.
+Download the build for your architecture on the [release page](https://github.com/tailwindlabs/tailwindcss/releases/latest/). 
 
+    # Example for macOS arm64
+    curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/latest/download/tailwindcss-macos-arm64
+    chmod +x tailwindcss-macos-arm64
+    mv tailwindcss-macos-arm64 tailwindcss
+    
 
 ## Tests
 

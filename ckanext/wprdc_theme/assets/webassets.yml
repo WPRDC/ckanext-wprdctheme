@@ -1,14 +1,14 @@
-# wprdc_theme-js:
-#   filter: rjsmin
-#   output: ckanext-wprdc_theme/%(version)s-wprdc_theme.js
-#   contents:
-#     - js/wprdc_theme.js
-#   extra:
-#     preload:
-#       - base/main
+ wprdc_theme_popover-js:
+   filter: rjsmin
+   output: ckanext-wprdc_theme/%(version)s-wprdc_theme_popover.js
+   contents:
+     - js/wprdc_theme_popover.js
+   extra:
+     preload:
+       - base/main
 
-# wprdc_theme-css:
-#   filter: cssrewrite
-#   output: ckanext-wprdc_theme/%(version)s-wprdc_theme.css
-#   contents:
-#     - css/wprdc_theme.css
+ wprdc_theme-css:
+   filter: cssrewrite
+   output: ckanext-wprdc_theme/%(version)s-wprdc_theme.css
+   contents:
+     - css/wprdc_theme.css
