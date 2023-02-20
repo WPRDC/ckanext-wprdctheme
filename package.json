@@ -1,0 +1,27 @@
+{
+  "name": "ckanext-wprdc_theme",
+  "version": "0.1.0",
+  "description": "CKAN theme used by the Western Pennsylvania Regional Data Center",
+  "main": "''",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WPRDC/ckanext-wprdc_theme.git"
+  },
+  "keywords": [
+    "ckan"
+  ],
+  "author": "Steve Saylor",
+  "license": "AGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/WPRDC/ckanext-wprdc_theme/issues"
+  },
+  "homepage": "https://github.com/WPRDC/ckanext-wprdc_theme#readme",
+  "devDependencies": {
+    "prettier": "^2.8.4",
+    "prettier-plugin-tailwindcss": "^0.2.3",
+    "tailwindcss": "^3.2.7"
+  }
+}

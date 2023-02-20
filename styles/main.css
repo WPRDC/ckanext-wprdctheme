@@ -1,0 +1,34 @@
+/*
+ For now, put all styles in this file.  If it gets unwieldy we can break it in to modules.
+
+ To build the styles into the theme from the base directory of ckanext-wprdc_theme:
+ tailwindcss - i ./styles/main.css -o ./ckanext/wprdc_theme/assets/css/wprdc_theme.css
+*/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.dataset-heading {
+  @apply text-2xl font-bold;
+}
+
+.main {
+  @apply bg-white bg-none px-16;
+}
+
+.row.wrapper {
+  @apply rounded-none;
+}
+
+.main .container {
+  @apply w-full max-w-full;
+}
+
+.row.wrapper {
+  @apply shadow-none;
+}
+
+.module > .page-header {
+  @apply bg-white;
+}

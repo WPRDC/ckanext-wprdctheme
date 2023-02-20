@@ -1,6 +1,7 @@
 [![Tests](https://github.com/WPRDC/ckanext-wprdc_theme/workflows/Tests/badge.svg?branch=main)](https://github.com/WPRDC/ckanext-wprdc_theme/actions)
 
 # ckanext-wprdc_theme
+
 CKAN theme used by the [Western Pennsylvania Regional Data Center](https://data.wprdc.org).
 
 ## Requirements
@@ -13,7 +14,7 @@ If your extension works across different versions you can add the following tabl
 Compatibility with core CKAN versions:
 
 | CKAN version    | Compatible? |
-| --------------- |-------------|
+|-----------------|-------------|
 | 2.6 and earlier | not tested  |
 | 2.7             | not tested  |
 | 2.8             | not tested  |
@@ -29,14 +30,14 @@ To install ckanext-wprdc_theme:
 
 1. Activate your CKAN virtual environment, for example:
 
-    . /usr/lib/ckan/default/bin/activate
+   . /usr/lib/ckan/default/bin/activate
 
 2. Clone the source and install it on the virtualenv
 
-    git clone https://github.com/WPRDC/ckanext-wprdc_theme.git
-    cd ckanext-wprdc_theme
-    pip install -e .
-	pip install -r requirements.txt
+   git clone https://github.com/WPRDC/ckanext-wprdc_theme.git
+   cd ckanext-wprdc_theme
+   pip install -e .
+   pip install -r requirements.txt
 
 3. Add `wprdc_theme` to the `ckan.plugins` setting in your CKAN
    config file (by default the config file is located at
@@ -44,8 +45,7 @@ To install ckanext-wprdc_theme:
 
 4. Restart CKAN. For example if you've deployed CKAN with Apache on Ubuntu:
 
-     sudo service apache2 reload
-
+   sudo service apache2 reload
 
 ## Config settings
 
@@ -57,25 +57,27 @@ None at present
 	# (optional, default: 24).
 	ckanext.wprdc_theme.some_setting = some_default_value
 
-
 ## Developer installation
 
 To install ckanext-wprdc_theme for development, activate your CKAN virtualenv and
 do:
-
+```shell
     git clone https://github.com/WPRDC/ckanext-wprdc_theme.git
     cd ckanext-wprdc_theme
     python setup.py develop
     pip install -r dev-requirements.txt
-    
-To work on styling, you'll need the TailwindCSS cli.
-Download the build for your architecture on the [release page](https://github.com/tailwindlabs/tailwindcss/releases/latest/). 
+```
 
-    # Example for macOS arm64
-    curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/latest/download/tailwindcss-macos-arm64
-    chmod +x tailwindcss-macos-arm64
-    mv tailwindcss-macos-arm64 tailwindcss
-    
+To develop and build the theme's CSS, you'll need to have [nodejs](https://nodejs.org/en/) available to your development environment and install the dependencies in [`package.json`](./package.json).
+
+```shell
+npm install 
+```
+
+Build styles and watch for changes.
+```shell
+tailwindcss -i ./styles/main.css -o ./ckanext/wprdc_theme/assets/css/wprdc_theme.css --watch
+```
 
 ## Tests
 
@@ -83,16 +85,17 @@ To run the tests, do:
 
     pytest --ckan-ini=test.ini
 
-
 ## Releasing a new version of ckanext-wprdc_theme
 
 If ckanext-wprdc_theme should be available on PyPI you can follow these steps to publish a new version:
 
-1. Update the version number in the `setup.py` file. See [PEP 440](http://legacy.python.org/dev/peps/pep-0440/#public-version-identifiers) for how to choose version numbers.
+1. Update the version number in the `setup.py` file.
+   See [PEP 440](http://legacy.python.org/dev/peps/pep-0440/#public-version-identifiers) for how to choose version
+   numbers.
 
 2. Make sure you have the latest version of necessary packages:
 
-    pip install --upgrade setuptools wheel twine
+   pip install --upgrade setuptools wheel twine
 
 3. Create a source and binary distributions of the new version:
 

@@ -12,3 +12,4 @@
    output: ckanext-wprdc_theme/%(version)s-wprdc_theme.css
    contents:
      - css/wprdc_theme.css
+

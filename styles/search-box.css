@@ -1,0 +1,57 @@
+.container {
+  @apply inline-flex flex-col relative w-full;
+}
+
+.label {
+  @apply block text-xs font-semibold text-gray-500 text-left cursor-default;
+}
+
+.box {
+  @apply relative flex-row flex;
+}
+
+.placeholder {
+  @apply text-gray-500;
+}
+
+.focusVis {
+  @apply border-pink-600;
+}
+
+.value {
+  @apply text-sm;
+}
+
+.iconDiv {
+  @apply absolute inset-y-0 left-0 flex items-center pl-3;
+}
+
+.icon {
+  @apply h-full w-6;
+  @apply text-zinc-600;
+}
+
+.realInput {
+  @apply text-lg;
+  @apply block rounded-2xl border-2 border-zinc-800;
+  @apply placeholder:italic placeholder:text-gray-400;
+  @apply bg-white w-full;
+  @apply py-3 pl-11 pr-3 shadow-md;
+  @apply focus:outline-none focus:border-cyan-800 focus:ring-sky-500 focus:ring-1;
+  @apply focus:shadow-lg;
+}
+
+.clearX {
+  @apply text-zinc-400;
+  @apply w-8 h-5;
+}
+
+.clearButton {
+  @apply absolute inset-y-0 right-2 flex items-center pl-2;
+  @apply cursor-pointer hover:text-gray-600;
+}
+
+.realInput::-webkit-search-cancel-button,
+.realInput::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
