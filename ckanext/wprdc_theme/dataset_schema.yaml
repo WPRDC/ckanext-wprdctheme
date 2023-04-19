@@ -1,0 +1,211 @@
+---
+scheming_version: 2
+dataset_type: dataset
+about: A reimplementation of the default CKAN dataset schema
+about_url: http://github.com/open-data/ckanext-scheming
+
+dataset_fields:
+  - field_name: title
+    label: Title
+    preset: title
+    form_placeholder: eg. A descriptive title
+    required: true
+    help_text: Short human-readable name of the asset. Should be in plain English and
+      include sufficient detail to facilitate search and discovery. Avoid acronyms.
+      Use "title case" spelling, and no need to list dates.
+
+  - field_name: name
+    label: URL
+    preset: dataset_slug
+    form_placeholder: eg. my-dataset
+    required: true
+    help_text: URL link to the dataset landing page on the open data portal.
+
+  - field_name: notes
+    label: Description
+    preset: markdown
+    form_placeholder: eg. Some useful notes about the data
+    help_text: Provide a longer description of the data (compared to the title) that
+      can be readily understood by non-technical users.
+
+  - field_name: tag_string
+    label: Tags
+    preset: tag_string_autocomplete
+    form_placeholder: eg. economy, mental health, government
+    help_text: Keywords that describe the dataset. Enter separated by commas or carriage
+      returns. Acronyms acceptable. Use technical and non-technical terms. Use as many
+      as needed. Use plural forms of the word, and also singular forms if different
+      from plural (i.e. leaf/leaves, knife/knives)
+
+  - field_name: license_id
+    label: License
+    form_snippet: license.html
+    help_text: License definitions and additional information can be found at http://opendefinition.org/
+
+  - field_name: owner_org
+    label: Organization
+    preset: dataset_organization
+
+  - field_name: access_level_comment
+    label: Public Access Level Comment
+    preset: markdown
+    form_placeholder: e.g., An ordinance prohibits release of owner names.
+    help_text: An explanation of any steps that have been taken to make a sensitive
+      dataset public, where appropriate, including obfuscation, aggregation, or anonymization.
+
+  - field_name: temporal_coverage
+    label: Temporal Coverage
+    form_placeholder: YYYY-MM-DD/YYYY-MM-DD
+    help_text: Start/End periods covered by the data. Separate start and end by a "/".
+      Use years (YYYY), dates (YYYY-MM-DD), or dates and times (YYY-MM-DD"T"HHMMSS)
+      Examples:4 digit year (2013/2015), Date (2011-02-14/2013-07-04), Date/Time (2011-02-14T12:00:00Z/2013-07-04T19:34:00Z)
+
+  - field_name: geographic_unit
+    label: Geographic Unit
+    preset: select
+    help_text: At what geographic unit is the data collected? For example, if the data
+      is collected by address, it would be Street Address.
+    choices:
+      - value: N/A
+        label: Not Applicable
+      - value: Latitude/Longitude
+        label: Latitude/Longitude
+      - value: Street Address
+        label: Street Address
+      - value: Intersection/Street Segment
+        label: Intersection/Street Segment
+      - value: Parcel (Block/Lot)
+        label: Parcel (Block/Lot)
+      - value: Census Block
+        label: Census Block
+      - value: Census Block Group
+        label: Census Block Group
+      - value: Census Tract
+        label: Census Tract
+      - value: Zoning District
+        label: Zoning District
+      - value: Neighborhood
+        label: Neighborhood
+      - value: Political District
+        label: Political District
+      - value: County
+        label: County
+      - value: Zip Code
+        label: Zip Code
+      - value: Municipal
+        label: Municipal
+      - value: Raster
+        label: Raster
+      - value: Other
+        label: Other
+
+  - field_name: data_notes
+    label: Data Notes
+    preset: markdown
+    form_placeholder: e.g., Some additional useful notes about the data
+    help_text: Are there any concerns about overall data reliability? Are there any
+      changes in data collection or methods that the user should be aware of? Are there
+      any constraints with data accuracy? What levels of confidence with this dataset
+      could the user reasonably assume?
+
+  - field_name: related_documents
+    label: Related Document(s)
+    help_text: Related documents such as technical information about a dataset, developer
+      documentation, etc.
+
+  - field_name: frequency_data_change
+    label: Frequency - Data Change
+    preset: select
+    help_text: Frequency with which dataset changes. This can be a relative frequency
+      - If the file changes every 1st and 4th Monday, we can code this as bi-monthly,
+      etc.
+    choices:
+      - value: Not Updated (Historical Only)
+        label: Not Updated (Historical Only)
+      - value: As Needed
+        label: As Needed
+      - value: Annually
+        label: Annually
+      - value: Bi-Annually
+        label: Bi-Annually
+      - value: Quarterly
+        label: Quarterly
+      - value: Bi-Monthly
+        label: Bi-Monthly
+      - value: Monthly
+        label: Monthly
+      - value: Bi-Weekly
+        label: Bi-Weekly
+      - value: Weekly
+        label: Weekly
+      - value: Daily
+        label: Daily
+      - value: Hourly
+        label: Hourly
+      - value: Multiple Times per Hour
+        label: Multiple Times per Hour
+      - value: Streaming (Real Time)
+        label: Streaming (Real Time)
+
+  - field_name: frequency_publishing
+    label: Frequency - Publishing
+    preset: select
+    help_text: Frequency with which dataset is published.
+    choices:
+      - value: Not Updated (Historical Only)
+        label: Not Updated (Historical Only)
+      - value: As Needed
+        label: As Needed
+      - value: Annually
+        label: Annually
+      - value: Bi-Annually
+        label: Bi-Annually
+      - value: Quarterly
+        label: Quarterly
+      - value: Bi-Monthly
+        label: Bi-Monthly
+      - value: Monthly
+        label: Monthly
+      - value: Bi-Weekly
+        label: Bi-Weekly
+      - value: Weekly
+        label: Weekly
+      - value: Daily
+        label: Daily
+      - value: Hourly
+        label: Hourly
+      - value: Multiple Times per Hour
+        label: Multiple Times per Hour
+      - value: Streaming (Real Time)
+        label: Streaming (Real Time)
+
+  - field_name: maintainer
+    label: Data Steward
+    form_placeholder: Joe Bloggs
+    display_property: dc:contributor
+
+  - field_name: maintainer_email
+    label: Data Steward Email
+    form_placeholder: joe@example.com
+    display_property: dc:contributor
+    display_snippet: email.html
+    display_email_name_field: maintainer
+
+resource_fields:
+
+  - field_name: url
+    label: URL
+    preset: resource_url_upload
+
+  - field_name: name
+    label: Name
+    form_placeholder: e.g., January 2011 Gold Prices
+
+  - field_name: description
+    label: Description
+    preset: markdown
+    form_placeholder: Some useful notes about the data
+
+  - field_name: format
+    label: Format
+    preset: resource_format_autocomplete
