@@ -1,9 +1,0 @@
-.wrapper {
-  @apply flex flex-col items-stretch;
-  @apply min-h-screen w-screen;
-}
-
-.main {
-  @apply bg-zinc-50;
-  @apply flex flex-grow overflow-y-auto lg:overflow-y-hidden;
-}

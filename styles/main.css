@@ -3,11 +3,73 @@
 
  To build the styles into the theme from the base directory of ckanext-wprdc_theme:
  tailwindcss - i ./styles/main.css -o ./ckanext/wprdc_theme/assets/css/wprdc_theme.css
+
+ When developing:
+ tailwindcss -i ./styles/main.css -o ./ckanext/wprdc_theme/assets/css/wprdc_theme.css --watch
 */
+/* GLOBAL STYLES */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono/JetBrainsMono-Bold.woff2") format("woff2"),
+    url("/fonts/JetBrainsMono/JetBrainsMono-BoldItalic.woff2") format("woff"),
+    url("/fonts/JetBrainsMono/JetBrainsMono-ExtraBold.woff2") format("woff"),
+    url("/fonts/JetBrainsMono/JetBrainsMono-ExtraBoldItalic.woff2")
+      format("woff"),
+    url("/fonts/JetBrainsMono/JetBrainsMono-ExtraLight.woff2") format("woff"),
+    url("/fonts/JetBrainsMono/JetBrainsMono-ExtraLightItalic.woff2")
+      format("woff"),
+    url("/fonts/JetBrainsMono/JetBrainsMono-Italic.woff2") format("woff"),
+    url("/fonts/JetBrainsMono/JetBrainsMono-Light.woff2") format("woff"),
+    url("/fonts/JetBrainsMono/JetBrainsMono-LightItalic.woff2") format("woff"),
+    url("/fonts/JetBrainsMono/JetBrainsMono-Medium.woff2") format("woff"),
+    url("/fonts/JetBrainsMono/JetBrainsMono-MediumItalic.woff2") format("woff"),
+    url("/fonts/JetBrainsMono/JetBrainsMono-Regular.woff2") format("woff"),
+    url("/fonts/JetBrainsMono/JetBrainsMono-SemiBold.woff2") format("woff"),
+    url("/fonts/JetBrainsMono/JetBrainsMono-SemiBoldItalic.woff2")
+      format("woff"),
+    url("/fonts/JetBrainsMono/JetBrainsMono-Thin.woff2") format("woff"),
+    url("/fonts/JetBrainsMono/JetBrainsMono-ThinItalic.woff2") format("woff");
+}
+
+@font-face {
+  font-family: "Public Sans";
+  src: url("/fonts/PublicSans/PublicSans-Bold.woff2") format("woff2"),
+    url("/fonts/PublicSans/PublicSans-BoldItalic.woff2") format("woff"),
+    url("/fonts/PublicSans/PublicSans-ExtraBold.woff2") format("woff"),
+    url("/fonts/PublicSans/PublicSans-ExtraBoldItalic.woff2") format("woff"),
+    url("/fonts/PublicSans/PublicSans-ExtraLight.woff2") format("woff"),
+    url("/fonts/PublicSans/PublicSans-ExtraLightItalic.woff2") format("woff"),
+    url("/fonts/PublicSans/PublicSans-Italic.woff2") format("woff"),
+    url("/fonts/PublicSans/PublicSans-Light.woff2") format("woff"),
+    url("/fonts/PublicSans/PublicSans-LightItalic.woff2") format("woff"),
+    url("/fonts/PublicSans/PublicSans-Medium.woff2") format("woff"),
+    url("/fonts/PublicSans/PublicSans-MediumItalic.woff2") format("woff"),
+    url("/fonts/PublicSans/PublicSans-Regular.woff2") format("woff"),
+    url("/fonts/PublicSans/PublicSans-SemiBold.woff2") format("woff"),
+    url("/fonts/PublicSans/PublicSans-SemiBoldItalic.woff2") format("woff"),
+    url("/fonts/PublicSans/PublicSans-Thin.woff2") format("woff"),
+    url("/fonts/PublicSans/PublicSans-ThinItalic.woff2") format("woff");
+}
+
+#flDebug .flDebugPanelContent {
+  overflow-y: auto !important;
+}
+
+body {
+  @apply font-sans;
+  @apply text-text;
+}
+
+/* END GLOBAL STYLES */
+
+h3 {
+  @apply font-mono;
+}
 
 .dataset-heading {
   @apply text-2xl font-bold;
@@ -31,4 +93,22 @@
 
 .module > .page-header {
   @apply bg-white;
+}
+
+/* snippets/package_item.html */
+.w_dataset-heading-section {
+  @apply flex flex-col-reverse;
+}
+
+.w_dataset-heading-section > .dataset-heading > a {
+  @apply font-mono;
+}
+
+.w_dataset-heading-org {
+  @apply font-mono text-xs;
+  @apply font-semibold text-textSecondary;
+}
+
+/* snippets/facet_list.html */
+.module.module-narrow {
 }

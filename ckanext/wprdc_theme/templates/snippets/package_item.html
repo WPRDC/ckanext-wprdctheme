@@ -1,6 +1,48 @@
+{#
+Displays a single of dataset.
+
+package        - A package to display.
+item_class     - The class name to use on the list item.
+hide_resources - If true hides the resources (default: false).
+
+Example:
+
+  {% snippet 'snippets/package_item.html', package=c.datasets[0] %}
+
+#}
 {% ckan_extends %}
 
 {% block content %}
-  {{ super() }}
+  {% block heading %}
+    <div class="w_dataset-heading-section">
+      <h2 class="dataset-heading">
 
+        {% block heading_title %}
+          <a href="{{ h.url_for('%s.read' % package.type, id=package.name) }}">
+            {{ title|truncate(80) }}
+          </a>
+        {% endblock %}
+
+        {% block heading_private %}
+          {% if package.private %}
+            <span class="dataset-private badge bg-secondary">
+                    <i class="fa fa-lock"></i>
+                    {{ _('Private') }}
+                </span>
+          {% endif %}
+        {% endblock %}
+
+        {% block heading_meta %}
+          {% if package.get('state', '').startswith('draft') %}
+            <span class="badge badge-info">{{ _('Draft') }}</span>
+          {% elif package.get('state', '').startswith('deleted') %}
+            <span class="badge badge-danger">{{ _('Deleted') }}</span>
+          {% endif %}
+          {{ h.popular('recent views', package.tracking_summary.recent, min=10) if package.tracking_summary }}
+        {% endblock %}
+      </h2>
+      <p class="w_dataset-heading-org">{{ package.organization.title }}</p>
+
+    </div>
+  {% endblock %}
 {% endblock %}
