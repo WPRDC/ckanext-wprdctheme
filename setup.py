@@ -11,7 +11,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='''ckanext-wprdc_theme''',
+    name='''ckanext-wprdctheme''',
 
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
@@ -23,7 +23,7 @@ setup(
     long_description_content_type="text/markdown",
 
     # The project's main homepage.
-    url='https://github.com/WPRDC/ckanext-wprdc_theme',
+    url='https://github.com/WPRDC/ckanext-wprdctheme',
 
     # Author details
     author='''Steve Saylor''',
@@ -84,7 +84,7 @@ setup(
     # pip to create the appropriate form of executable for the target platform.
     entry_points='''
         [ckan.plugins]
-        wprdc_theme=ckanext.wprdc_theme.plugin:WPRDCThemePlugin
+        wprdctheme=ckanext.wprdctheme.plugin:WPRDCThemePlugin
 
         [babel.extractors]
         ckan = ckan.lib.extract:extract_ckan
