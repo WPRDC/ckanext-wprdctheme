@@ -1,6 +1,6 @@
-[![Tests](https://github.com/WPRDC/ckanext-wprdc_theme/workflows/Tests/badge.svg?branch=main)](https://github.com/WPRDC/ckanext-wprdc_theme/actions)
+[![Tests](https://github.com/WPRDC/ckanext-wprdctheme/workflows/Tests/badge.svg?branch=main)](https://github.com/WPRDC/ckanext-wprdctheme/actions)
 
-# ckanext-wprdc_theme
+# ckanext-wprdctheme
 
 CKAN theme used by the [Western Pennsylvania Regional Data Center](https://data.wprdc.org).
 
@@ -26,7 +26,7 @@ Compatibility with core CKAN versions:
 For example installing any non-Python dependencies or adding any required
 config settings.
 
-To install ckanext-wprdc_theme:
+To install ckanext-wprdctheme:
 
 1. Activate your CKAN virtual environment, for example:
 
@@ -34,12 +34,12 @@ To install ckanext-wprdc_theme:
 
 2. Clone the source and install it on the virtualenv
 
-   git clone https://github.com/WPRDC/ckanext-wprdc_theme.git
-   cd ckanext-wprdc_theme
+   git clone https://github.com/WPRDC/ckanext-wprdctheme.git
+   cd ckanext-wprdctheme
    pip install -e .
    pip install -r requirements.txt
 
-3. Add `wprdc_theme` to the `ckan.plugins` setting in your CKAN
+3. Add `wprdctheme` to the `ckan.plugins` setting in your CKAN
    config file (by default the config file is located at
    `/etc/ckan/default/ckan.ini`).
 
@@ -55,15 +55,15 @@ None at present
 
 	# The minimum number of hours to wait before re-checking a resource
 	# (optional, default: 24).
-	ckanext.wprdc_theme.some_setting = some_default_value
+	ckanext.wprdctheme.some_setting = some_default_value
 
 ## Developer installation
 
-To install ckanext-wprdc_theme for development, activate your CKAN virtualenv and
+To install ckanext-wprdctheme for development, activate your CKAN virtualenv and
 do:
 ```shell
-    git clone https://github.com/WPRDC/ckanext-wprdc_theme.git
-    cd ckanext-wprdc_theme
+    git clone https://github.com/WPRDC/ckanext-wprdctheme.git
+    cd ckanext-wprdctheme
     python setup.py develop
     pip install -r dev-requirements.txt
 ```
@@ -76,7 +76,7 @@ npm install
 
 Build styles and watch for changes.
 ```shell
-tailwindcss -i ./styles/main.css -o ./ckanext/wprdc_theme/assets/css/wprdc_theme.css --watch
+tailwindcss -i ./styles/main.css -o ./ckanext/wprdctheme/assets/css/wprdc_theme.css --watch
 ```
 
 ## Tests
@@ -85,9 +85,9 @@ To run the tests, do:
 
     pytest --ckan-ini=test.ini
 
-## Releasing a new version of ckanext-wprdc_theme
+## Releasing a new version of ckanext-wprdctheme
 
-If ckanext-wprdc_theme should be available on PyPI you can follow these steps to publish a new version:
+If ckanext-wprdctheme should be available on PyPI you can follow these steps to publish a new version:
 
 1. Update the version number in the `setup.py` file.
    See [PEP 440](http://legacy.python.org/dev/peps/pep-0440/#public-version-identifiers) for how to choose version

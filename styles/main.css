@@ -1,11 +1,11 @@
 /*
  For now, put all styles in this file.  If it gets unwieldy we can break it in to modules.
 
- To build the styles into the theme from the base directory of ckanext-wprdc_theme:
- tailwindcss - i ./styles/main.css -o ./ckanext/wprdc_theme/assets/css/wprdc_theme.css
+ To build the styles into the theme from the base directory of ckanext-wprdctheme:
+ tailwindcss - i ./styles/main.css -o ./ckanext/wprdctheme/assets/css/wprdc_theme.css
 
  When developing:
- tailwindcss -i ./styles/main.css -o ./ckanext/wprdc_theme/assets/css/wprdc_theme.css --watch
+ tailwindcss -i ./styles/main.css -o ./ckanext/wprdctheme/assets/css/wprdc_theme.css --watch
 */
 /* GLOBAL STYLES */
 

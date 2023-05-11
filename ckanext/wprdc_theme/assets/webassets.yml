@@ -1,6 +1,6 @@
  wprdc_theme_popover-js:
    filter: rjsmin
-   output: ckanext-wprdc_theme/%(version)s-wprdc_theme_popover.js
+   output: ckanext-wprdctheme/%(version)s-wprdc_theme_popover.js
    contents:
      - js/wprdc_theme_popover.js
    extra:
@@ -9,6 +9,6 @@
 
  wprdc_theme-css:
    filter: cssrewrite
-   output: ckanext-wprdc_theme/%(version)s-wprdc_theme.css
+   output: ckanext-wprdctheme/%(version)s-wprdc_theme.css
    contents:
      - css/wprdc_theme.css
