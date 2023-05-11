@@ -12,37 +12,73 @@ Example:
 #}
 {% ckan_extends %}
 
-{% block content %}
-  {% block heading %}
-    <div class="w_dataset-heading-section">
-      <h2 class="dataset-heading">
 
-        {% block heading_title %}
-          <a href="{{ h.url_for('%s.read' % package.type, id=package.name) }}">
-            {{ title|truncate(80) }}
-          </a>
-        {% endblock %}
 
-        {% block heading_private %}
-          {% if package.private %}
-            <span class="dataset-private badge bg-secondary">
+{% block heading %}
+  <div class="w_dataset-heading-section">
+    <h2 class="dataset-heading">
+
+      {% block heading_title %}
+        <a href="{{ h.url_for('%s.read' % package.type, id=package.name) }}">
+          {{ title|truncate(80) }}
+        </a>
+      {% endblock %}
+
+      {% block heading_private %}
+        {% if package.private %}
+          <span class="dataset-private badge bg-secondary">
                     <i class="fa fa-lock"></i>
                     {{ _('Private') }}
                 </span>
-          {% endif %}
-        {% endblock %}
+        {% endif %}
+      {% endblock %}
 
-        {% block heading_meta %}
-          {% if package.get('state', '').startswith('draft') %}
-            <span class="badge badge-info">{{ _('Draft') }}</span>
-          {% elif package.get('state', '').startswith('deleted') %}
-            <span class="badge badge-danger">{{ _('Deleted') }}</span>
-          {% endif %}
-          {{ h.popular('recent views', package.tracking_summary.recent, min=10) if package.tracking_summary }}
-        {% endblock %}
-      </h2>
-      <p class="w_dataset-heading-org">{{ package.organization.title }}</p>
+      {% block heading_meta %}
+        {% if package.get('state', '').startswith('draft') %}
+          <span class="badge badge-info">{{ _('Draft') }}</span>
+        {% elif package.get('state', '').startswith('deleted') %}
+          <span class="badge badge-danger">{{ _('Deleted') }}</span>
+        {% endif %}
+        {{ h.popular('recent views', package.tracking_summary.recent, min=10) if package.tracking_summary }}
+      {% endblock %}
+    </h2>
+    <p class="w_dataset-heading-org">{{ package.organization.title }}</p>
+  </div>
+{% endblock %}
 
-    </div>
-  {% endblock %}
+{% block notes %}
+  {% set notes = h.markdown_extract(package.notes, extract_length=320) %}
+  {% if notes %}
+    <div class="w_dataset-item-notes">{{ notes }}</div>
+  {% else %}
+    <p class="empty">{{ h.humanize_entity_type('package', package.type, 'no description') or _("There is no description for this dataset") }}</p>
+  {% endif %}
+
+
+{% endblock %}
+
+{% block resources %}
+  <div class="w_dataset-item-footer">
+    <dl class="w_dataset-item-metadata-list">
+      <dt>Last Updated:</dt>
+      <dd>
+        {% snippet 'snippets/local_friendly_datetime.html', datetime_obj=package.metadata_modified %}
+      </dd>
+    </dl>
+
+    {% if package.resources and not hide_resources %}
+      {% block resources_outer %}
+        <ul class="w_dataset-resources dataset-resources list-unstyled">
+          {% block resources_inner %}
+            {% for resource in h.dict_list_reduce(package.resources, 'format') %}
+              <li>
+                <a href="{{ h.url_for(package.type ~ '.read', id=package.name) }}" class="badge badge-default"
+                   data-format="{{ resource.lower() }}">{{ resource }}</a>
+              </li>
+            {% endfor %}
+          {% endblock %}
+        </ul>
+      {% endblock %}
+    {% endif %}
+  </div>
 {% endblock %}

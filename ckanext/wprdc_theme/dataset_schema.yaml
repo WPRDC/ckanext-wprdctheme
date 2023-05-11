@@ -179,17 +179,17 @@ dataset_fields:
       - value: Streaming (Real Time)
         label: Streaming (Real Time)
 
-  - field_name: maintainer
+  - field_name: data_steward_name
     label: Data Steward
-    form_placeholder: Joe Bloggs
+    form_placeholder: Pirate Parrot, The
     display_property: dc:contributor
 
-  - field_name: maintainer_email
+  - field_name: data_steward_email
     label: Data Steward Email
     form_placeholder: joe@example.com
     display_property: dc:contributor
     display_snippet: email.html
-    display_email_name_field: maintainer
+    display_email_name_field: data_steward_name
 
 resource_fields:
 

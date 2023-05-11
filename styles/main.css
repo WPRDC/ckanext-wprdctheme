@@ -13,95 +13,108 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "JetBrains Mono";
-  src: url("/fonts/JetBrainsMono/JetBrainsMono-Bold.woff2") format("woff2"),
-    url("/fonts/JetBrainsMono/JetBrainsMono-BoldItalic.woff2") format("woff"),
-    url("/fonts/JetBrainsMono/JetBrainsMono-ExtraBold.woff2") format("woff"),
-    url("/fonts/JetBrainsMono/JetBrainsMono-ExtraBoldItalic.woff2")
-      format("woff"),
-    url("/fonts/JetBrainsMono/JetBrainsMono-ExtraLight.woff2") format("woff"),
-    url("/fonts/JetBrainsMono/JetBrainsMono-ExtraLightItalic.woff2")
-      format("woff"),
-    url("/fonts/JetBrainsMono/JetBrainsMono-Italic.woff2") format("woff"),
-    url("/fonts/JetBrainsMono/JetBrainsMono-Light.woff2") format("woff"),
-    url("/fonts/JetBrainsMono/JetBrainsMono-LightItalic.woff2") format("woff"),
-    url("/fonts/JetBrainsMono/JetBrainsMono-Medium.woff2") format("woff"),
-    url("/fonts/JetBrainsMono/JetBrainsMono-MediumItalic.woff2") format("woff"),
-    url("/fonts/JetBrainsMono/JetBrainsMono-Regular.woff2") format("woff"),
-    url("/fonts/JetBrainsMono/JetBrainsMono-SemiBold.woff2") format("woff"),
-    url("/fonts/JetBrainsMono/JetBrainsMono-SemiBoldItalic.woff2")
-      format("woff"),
-    url("/fonts/JetBrainsMono/JetBrainsMono-Thin.woff2") format("woff"),
-    url("/fonts/JetBrainsMono/JetBrainsMono-ThinItalic.woff2") format("woff");
-}
 
-@font-face {
-  font-family: "Public Sans";
-  src: url("/fonts/PublicSans/PublicSans-Bold.woff2") format("woff2"),
-    url("/fonts/PublicSans/PublicSans-BoldItalic.woff2") format("woff"),
-    url("/fonts/PublicSans/PublicSans-ExtraBold.woff2") format("woff"),
-    url("/fonts/PublicSans/PublicSans-ExtraBoldItalic.woff2") format("woff"),
-    url("/fonts/PublicSans/PublicSans-ExtraLight.woff2") format("woff"),
-    url("/fonts/PublicSans/PublicSans-ExtraLightItalic.woff2") format("woff"),
-    url("/fonts/PublicSans/PublicSans-Italic.woff2") format("woff"),
-    url("/fonts/PublicSans/PublicSans-Light.woff2") format("woff"),
-    url("/fonts/PublicSans/PublicSans-LightItalic.woff2") format("woff"),
-    url("/fonts/PublicSans/PublicSans-Medium.woff2") format("woff"),
-    url("/fonts/PublicSans/PublicSans-MediumItalic.woff2") format("woff"),
-    url("/fonts/PublicSans/PublicSans-Regular.woff2") format("woff"),
-    url("/fonts/PublicSans/PublicSans-SemiBold.woff2") format("woff"),
-    url("/fonts/PublicSans/PublicSans-SemiBoldItalic.woff2") format("woff"),
-    url("/fonts/PublicSans/PublicSans-Thin.woff2") format("woff"),
-    url("/fonts/PublicSans/PublicSans-ThinItalic.woff2") format("woff");
-}
-
+/*****************/
+/* Theme styles  */
+/*****************/
 #flDebug .flDebugPanelContent {
   overflow-y: auto !important;
 }
 
 body {
-  @apply font-sans;
-  @apply text-text;
+  @apply font-mono;
 }
-
-/* END GLOBAL STYLES */
 
 h3 {
   @apply font-mono;
 }
 
-.dataset-heading {
-  @apply text-2xl font-bold;
+a {
+  @apply text-text hover:text-text;
+  @apply hover:bg-primary;
 }
 
-.main {
-  @apply bg-white bg-none px-16;
+#content {
+  @apply max-w-6xl mx-auto;
 }
 
 .row.wrapper {
   @apply rounded-none;
+  @apply border-black;
+  @apply shadow-xl;
 }
+
 
 .main .container {
   @apply w-full max-w-full;
-}
-
-.row.wrapper {
-  @apply shadow-none;
 }
 
 .module > .page-header {
   @apply bg-white;
 }
 
+.row.wrapper > .primary {
+  @apply p-0 border-l-black border-l;
+}
+
+.row.wrapper > .primary .module-content {
+  @apply p-0;
+}
+
+
+.search-form {
+  @apply mb-0;
+  @apply border-b border-b-black border-solid;
+}
+
+.badge {
+  @apply rounded-none border-black border;
+  @apply font-mono;
+}
+
+/* END GLOBAL STYLES */
+
+
 /* snippets/package_item.html */
 .w_dataset-heading-section {
   @apply flex flex-col-reverse;
 }
 
-.w_dataset-heading-section > .dataset-heading > a {
-  @apply font-mono;
+
+.w_dataset-heading-section h2 {
+  @apply mt-1;
+  @apply text-2xl font-mono font-bold;
+  @apply underline underline-offset-2 decoration-2;
+  @apply hover:font-extrabold
+}
+
+.w_dataset-heading-section h2 a {
+  @apply hover:bg-primary;
+}
+
+
+/* grid items */
+.media-grid {
+  @apply -mx-5;
+  @apply p-5;
+}
+
+.media-grid .media-item {
+  @apply ml-0 mr-3 mb-3;
+}
+
+.media-grid .media-item .media-description {
+  @apply pb-2 font-sans;
+
+}
+
+.media-grid .media-item a.media-view {
+  @apply hover:bg-opacity-0;
+  @apply hover:shadow-2xl;
+}
+
+.row .primary .media-grid .media-item > h2.media-heading {
+  @apply text-base font-bold;
 }
 
 .w_dataset-heading-org {
@@ -109,6 +122,728 @@ h3 {
   @apply font-semibold text-textSecondary;
 }
 
+.dataset-item {
+  @apply relative;
+  @apply border-b border-black ;
+  @apply py-5 mb-0;
+}
+
+.dataset-item:last-of-type {
+  @apply py-5 !important;
+}
+
+.dataset-heading {
+  @apply text-xl font-bold leading-none;
+}
+
+.w_dataset-item-metadata-list dl {
+  @apply inline font-mono;
+  @apply font-mono text-xs;
+}
+
+.w_dataset-item-metadata-list dt {
+  @apply font-bold inline-block;
+  @apply mr-2;
+  @apply font-mono text-xs;
+}
+
+.w_dataset-item-metadata-list dd {
+  @apply inline-block;
+  @apply font-mono text-xs;
+}
+
+.w_dataset-item-notes {
+  @apply my-1;
+  @apply text-sm font-sans;
+}
+
 /* snippets/facet_list.html */
 .module.module-narrow {
 }
+
+.w_dataset-resources {
+  @apply m-0;
+}
+
+.w_dataset-item-footer {
+  @apply pt-2;
+  @apply flex items-center justify-between;
+}
+
+.secondary li.nav-item a {
+  @apply flex items-center;
+  @apply hover:bg-primary hover:text-text;
+}
+
+.secondary li.nav-item a .item-label {
+  @apply mr-1;
+  @apply truncate;
+}
+
+.secondary li.nav-item.active a::before {
+  @apply content-none;
+}
+
+.secondary li.nav-item.active a {
+  @apply bg-black text-white font-bold;
+  @apply hover:bg-black hover:text-white;
+}
+
+
+.masthead form.site-search {
+  @apply shadow-lg hover:shadow-xl;
+  @apply border-black border-2;
+}
+
+.masthead form.site-search > input,
+#field-sitewide-search {
+  @apply rounded-none;
+  @apply mr-0 !important;
+}
+
+.masthead form.site-search > button.btn {
+  @apply m-0;
+  @apply rounded-none;
+  @apply shadow-none;
+  @apply border-0 border-l-2;
+}
+
+/* snippets/search_form.html */
+.search-input-group {
+  @apply shadow-lg hover:shadow-xl;
+  @apply border-black border-2;
+}
+
+.search-input-group > input {
+  @apply rounded-none;
+}
+
+.search-input-group .input-group-btn > button {
+  @apply rounded-none;
+  @apply shadow-none;
+  @apply border-0 border-l-2;
+  @apply hover:bg-primary !important;
+}
+
+.control-order-by select {
+  @apply rounded-none;
+}
+
+.form-control:focus {
+  @apply border-inherit;
+  @apply ring-2 ring-secondary-500;
+  @apply shadow-none;
+}
+
+.search-form h1 {
+  @apply font-mono;
+}
+
+/* snippets/facet_list.html */
+.secondary h2.module-heading {
+  @apply text-sm font-bold font-mono;
+}
+
+.w_facet-list .item-label {
+  @apply text-xs;
+}
+
+.w_facet-list .nav-item a {
+  @apply hover:bg-primary;
+}
+
+/* header.html */
+.account-masthead {
+  @apply bg-black text-white;
+}
+
+.account-masthead .list-unstyled img {
+  @apply inline-block;
+}
+
+.masthead {
+  @apply bg-white;
+  @apply text-black;
+  @apply border-b-black border-b-2;
+}
+
+.masthead .main-navbar ul li {
+  @apply rounded-none;
+
+}
+
+.masthead .main-navbar ul li a {
+  @apply text-black font-bold;
+  @apply font-mono underline;
+  @apply rounded-none;
+  /*@apply px-1.5 py-1 mr-4;*/
+}
+
+.masthead .main-navbar ul li:hover a,
+.masthead .main-navbar ul li:focus a {
+  @apply text-black  font-extrabold bg-primary;
+  @apply rounded-none decoration-2;
+  @apply bg-opacity-0;
+}
+
+.masthead .main-navbar ul li.active a {
+  @apply bg-white bg-opacity-0 no-underline;
+  @apply font-bold;
+}
+
+.header-image > .logo {
+  @apply h-10 w-96;
+  @apply hover:bg-opacity-0;
+}
+
+header.masthead > .container {
+  @apply py-0;
+}
+
+.masthead .navbar {
+  @apply py-0;
+}
+
+.main {
+  /*@apply bg-[#f4f4f4];*/
+  background-image: none;
+}
+
+.w_order-by-label {
+  @apply font-mono;
+}
+
+.filter-list > .facet {
+  @apply font-mono;
+}
+
+.filtered.pill {
+  @apply rounded-sm bg-slate-800;
+  @apply font-semibold font-mono text-primary;
+}
+
+ul.pagination {
+  @apply p-5;
+  @apply font-mono text-lg font-semibold;
+}
+
+ul.pagination > li a {
+  @apply mr-3;
+  @apply underline;
+  @apply hover:bg-primary hover:text-text;
+}
+
+ul.pagination > li.active a {
+  @apply no-underline;
+}
+
+ul.pagination > li.disabled a {
+  @apply no-underline text-textSecondary;
+  @apply hover:no-underline cursor-default;
+  @apply hover:bg-white hover:text-text;
+}
+
+.w_search-results-api-msg {
+  @apply italic;
+  @apply pb-2;
+}
+
+.site-footer {
+  @apply bg-black text-white;
+}
+
+/* nav-tabs */
+.nav.nav-tabs {
+  @apply h-full;
+  @apply p-0 m-0;
+
+}
+
+.nav.nav-tabs li {
+  @apply shadow-none;
+  @apply h-full;
+
+}
+
+.nav.nav-tabs li a {
+  @apply h-full;
+  @apply text-black font-semibold;
+  @apply rounded-none;
+  @apply hover:text-black hover:bg-primary;
+}
+
+.nav.nav-tabs li.active a {
+  @apply h-full;
+  @apply bg-text text-white font-bold;
+  @apply hover:text-primary;
+}
+
+.page_primary_action {
+  @apply text-right py-2  m-0;
+}
+
+
+.page-header .content_action {
+  @apply py-2 pr-5;
+}
+
+.btn {
+  @apply rounded-none border-2 border-black;
+  @apply shadow hover:shadow-lg;
+  @apply active:shadow-sm focus:shadow-sm !important;
+  @apply hover:bg-primary;
+  @apply py-1 px-2;
+}
+
+.btn.btn-light,
+.btn.btn-default {
+  @apply text-black bg-white;
+  @apply hover:bg-white !important;
+  @apply border-black !important;
+}
+
+.btn.btn-primary {
+  @apply text-white bg-slate-900;
+}
+
+.btn.btn-success {
+  @apply text-white bg-green-600;
+}
+
+.btn.btn-default {
+}
+
+.btn.btn-danger {
+  @apply bg-red-600;
+}
+
+.row .primary .module div.module-content {
+  @apply p-5;
+}
+
+h1.page-heading,
+.row .primary .module div.module-content h1 {
+  @apply text-3xl;
+}
+
+.row .primary .module div.module-content .search-form h1 {
+  @apply text-lg font-bold;
+}
+
+.row .primary .module div.module-content h2 {
+  @apply text-2xl;
+  @apply mt-5 mb-3;
+}
+
+.additional-info {
+}
+
+.additional-info h3 {
+  @apply text-xl;
+  @apply mt-5 mb-3;
+}
+
+.row .primary .module div.module-content h2.dataset-heading {
+  @apply py-1 m-0;
+}
+
+
+.primary .module h1 {
+}
+
+.notes.embedded-content {
+  @apply max-w-none;
+  @apply font-sans !important;
+}
+
+.notes.embedded-content {
+  /*@apply prose;*/
+}
+
+.row .primary .resources {
+}
+
+.embedded-content {
+}
+
+.resource-item {
+  @apply hover:bg-white;
+
+}
+
+.resource-item .heading {
+  @apply hover:bg-primary font-bold underline decoration-2;
+
+}
+
+.toolbar .breadcrumb > li a {
+  @apply text-black;
+}
+
+.tag-list {
+  @apply border-none bg-white;
+}
+
+.tag-list .tag {
+  @apply uppercase text-sm font-semibold;
+  @apply rounded border-black;
+  @apply bg-gray-100 hover:bg-primary hover:text-black;
+  @apply shadow-none hover:shadow-sm;
+  @apply active:shadow-inner active:bg-white;
+}
+
+.module-resource {
+  @apply p-0;
+}
+
+.module-resource .actions {
+  @apply top-0 right-0;
+}
+
+.module-resource .module-content {
+  @apply p-5 m-0;
+}
+
+
+/* embedded content */
+.notes.prose {
+  @apply py-3;
+}
+
+.notes.prose h3 {
+  @apply text-xl;
+}
+
+.notes.prose,
+.embedded-content {
+  @apply text-base font-sans text-text;
+  @apply leading-relaxed;
+}
+
+.notes.prose p,
+.embedded-content p {
+  @apply py-2;
+}
+
+.notes.prose a,
+.embedded-content a {
+  @apply font-semibold underline;
+  @apply hover:text-text hover:bg-primary;
+}
+
+.primary .module.w_resource_module {
+}
+
+/**********************************************************************************************************/
+/* Badges
+/* Override badge colors */
+a.badge[data-format=html],
+a.badge[data-format*=html] {
+  @apply bg-sky-800;
+}
+
+.badge[data-format=json],
+.badge[data-format*=json] {
+  @apply bg-red-600;
+}
+
+.badge[data-format=geojson],
+.badge[data-format=shp],
+.badge[data-format=kml] {
+  @apply bg-green-800;
+}
+
+.badge[data-format=xml],
+.badge[data-format*=xml] {
+  @apply bg-red-500;
+}
+
+.badge[data-format=text],
+.badge[data-format*=text] {
+  @apply bg-blue-800;
+}
+
+.badge[data-format=csv],
+.badge[data-format*=csv] {
+  @apply bg-amber-500;
+}
+
+.badge[data-format=xls],
+.badge[data-format*=xls] {
+  @apply bg-green-600;
+}
+
+.badge[data-format=zip],
+.badge[data-format*=zip] {
+  @apply bg-slate-700;
+}
+
+.badge[data-format=api],
+.badge[data-format*=api] {
+  @apply bg-pink-700;
+}
+
+.badge[data-format=pdf],
+.badge[data-format*=pdf] {
+  @apply bg-red-800;
+}
+
+.badge[data-format=rdf],
+.badge[data-format*=rdf],
+.badge[data-format*=nquad],
+.badge[data-format*=ntriples],
+.badge[data-format*=turtle] {
+  @apply bg-sky-800;
+}
+
+.badge-default[href]:hover,
+.badge-default[href]:focus {
+  @apply bg-primary text-primary;
+  text-decoration: none;
+}
+
+/* end badges */
+/**********************************************************************************************************/
+
+
+/**********************************************************************************************************/
+/*  Fonts
+
+/****************************/
+/* JetBrains Mono           */
+/****************************/
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono/JetBrainsMono-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono/JetBrainsMono-BoldItalic.woff2") format("woff");
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono/JetBrainsMono-ExtraBold.woff2") format("woff");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono/JetBrainsMono-ExtraBoldItalic.woff2") format("woff");
+  font-weight: 800;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono/JetBrainsMono-ExtraLight.woff2") format("woff");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono/JetBrainsMono-ExtraLightItalic.woff2") format("woff");
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono/JetBrainsMono-Italic.woff2") format("woff");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono/JetBrainsMono-Light.woff2") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono/JetBrainsMono-LightItalic.woff2") format("woff");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono/JetBrainsMono-Medium.woff2") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono/JetBrainsMono-MediumItalic.woff2") format("woff");
+  font-weight: 500;
+  font-style: italic;
+}
+
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono/JetBrainsMono-Regular.woff2") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono/JetBrainsMono-SemiBold.woff2") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono/JetBrainsMono-SemiBoldItalic.woff2") format("woff");
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono/JetBrainsMono-Thin.woff2") format("woff");
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono/JetBrainsMono-ThinItalic.woff2") format("woff");
+  font-weight: 100;
+  font-style: italic;
+}
+
+
+/****************************/
+/* Public Sans              */
+/****************************/
+@font-face {
+  font-family: "Public Sans";
+  src: url("/fonts/PublicSans/PublicSans-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: "Public Sans";
+  src: url("/fonts/PublicSans/PublicSans-BoldItalic.woff2") format("woff");
+  font-weight: 700;
+  font-style: italic;
+
+}
+
+@font-face {
+  font-family: "Public Sans";
+  src: url("/fonts/PublicSans/PublicSans-ExtraBold.woff2") format("woff");
+  font-weight: 800;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: "Public Sans";
+  src: url("/fonts/PublicSans/PublicSans-ExtraBoldItalic.woff2") format("woff");
+  font-weight: 800;
+  font-style: italic;
+
+}
+
+@font-face {
+  font-family: "Public Sans";
+  src: url("/fonts/PublicSans/PublicSans-ExtraLight.woff2") format("woff");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Public Sans";
+  src: url("/fonts/PublicSans/PublicSans-ExtraLightItalic.woff2") format("woff");
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Public Sans";
+  src: url("/fonts/PublicSans/PublicSans-Italic.woff2") format("woff");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Public Sans";
+  src: url("/fonts/PublicSans/PublicSans-Light.woff2") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Public Sans";
+  src: url("/fonts/PublicSans/PublicSans-LightItalic.woff2") format("woff");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Public Sans";
+  src: url("/fonts/PublicSans/PublicSans-Medium.woff2") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Public Sans";
+  src: url("/fonts/PublicSans/PublicSans-MediumItalic.woff2") format("woff");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Public Sans";
+  src: url("/fonts/PublicSans/PublicSans-Regular.woff2") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Public Sans";
+  src: url("/fonts/PublicSans/PublicSans-SemiBold.woff2") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Public Sans";
+  src: url("/fonts/PublicSans/PublicSans-SemiBoldItalic.woff2") format("woff");
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Public Sans";
+  src: url("/fonts/PublicSans/PublicSans-Thin.woff2") format("woff");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Public Sans";
+  src: url("/fonts/PublicSans/PublicSans-ThinItalic.woff2") format("woff");
+  font-weight: 100;
+  font-style: italic;
+}
+
+/* end fonts */
+/**********************************************************************************************************/
