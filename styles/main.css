@@ -84,12 +84,17 @@ a {
 .w_dataset-heading-section h2 {
   @apply mt-1;
   @apply text-2xl font-mono font-bold;
-  @apply underline underline-offset-2 decoration-2;
-  @apply hover:font-extrabold
 }
 
 .w_dataset-heading-section h2 a {
+  @apply inline;
   @apply hover:bg-primary;
+  @apply underline underline-offset-2 decoration-2;
+
+}
+
+.row .primary .module div.module-content h2.dataset-heading {
+  @apply py-1 m-0;
 }
 
 
@@ -97,10 +102,12 @@ a {
 .media-grid {
   @apply -mx-5;
   @apply p-5;
+  @apply bg-none;
 }
 
 .media-grid .media-item {
-  @apply ml-0 mr-3 mb-3;
+  @apply ml-0 mr-5 mb-5;
+  @apply rounded-none border-black;
 }
 
 .media-grid .media-item .media-description {
@@ -110,12 +117,14 @@ a {
 
 .media-grid .media-item a.media-view {
   @apply hover:bg-opacity-0;
-  @apply hover:shadow-2xl;
+  @apply shadow-lg hover:shadow-2xl;
+  @apply rounded-none border-black;
 }
 
 .row .primary .media-grid .media-item > h2.media-heading {
   @apply text-base font-bold;
 }
+
 
 .w_dataset-heading-org {
   @apply font-mono text-xs;
@@ -191,7 +200,7 @@ a {
 
 
 .masthead form.site-search {
-  @apply shadow-lg hover:shadow-xl;
+  @apply hover:ring-2 hover:ring-primary;
   @apply border-black border-2;
 }
 
@@ -210,7 +219,7 @@ a {
 
 /* snippets/search_form.html */
 .search-input-group {
-  @apply shadow-lg hover:shadow-xl;
+  @apply hover:ring-2 hover:ring-primary;
   @apply border-black border-2;
 }
 
@@ -349,7 +358,15 @@ ul.pagination > li.disabled a {
 }
 
 .site-footer {
-  @apply bg-black text-white;
+  @apply bg-text text-white;
+}
+
+.site-footer a {
+  @apply font-semibold text-white hover:text-text;
+}
+
+#partner-links {
+  @apply border-b mb-2;
 }
 
 /* nav-tabs */
@@ -362,7 +379,6 @@ ul.pagination > li.disabled a {
 .nav.nav-tabs li {
   @apply shadow-none;
   @apply h-full;
-
 }
 
 .nav.nav-tabs li a {
@@ -441,10 +457,6 @@ h1.page-heading,
 .additional-info h3 {
   @apply text-xl;
   @apply mt-5 mb-3;
-}
-
-.row .primary .module div.module-content h2.dataset-heading {
-  @apply py-1 m-0;
 }
 
 
@@ -534,8 +546,23 @@ h1.page-heading,
 .primary .module.w_resource_module {
 }
 
+.context-info p.description {
+  @apply font-sans;
+}
+
+.context-info .read-more {
+  @apply mt-1;
+}
+
 /**********************************************************************************************************/
-/* Badges
+/* Badges */
+.badge.badge-info,
+.badge.dataset-private {
+  @apply text-black text-xs bg-primary;
+  @apply rounded-sm px-1.5 py-0.5;
+}
+
+
 /* Override badge colors */
 a.badge[data-format=html],
 a.badge[data-format*=html] {

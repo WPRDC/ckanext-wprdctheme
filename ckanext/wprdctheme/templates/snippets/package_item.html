@@ -19,14 +19,12 @@ Example:
     <h2 class="dataset-heading">
 
       {% block heading_title %}
-        <a href="{{ h.url_for('%s.read' % package.type, id=package.name) }}">
-          {{ title|truncate(80) }}
-        </a>
+        <a href="{{ h.url_for('%s.read' % package.type, id=package.name) }}">{{ title|truncate(80) }}</a>
       {% endblock %}
 
       {% block heading_private %}
         {% if package.private %}
-          <span class="dataset-private badge bg-secondary">
+          <span class="dataset-private badge">
                     <i class="fa fa-lock"></i>
                     {{ _('Private') }}
                 </span>

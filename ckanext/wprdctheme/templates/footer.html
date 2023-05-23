@@ -4,9 +4,12 @@
     <div class="row">
       <div class="col-md-8 footer-links">
         {% block footer_nav %}
-          <ul class="list-unstyled">
+          <ul class="list-unstyled" id="partner-links">
             {% block footer_links %}
-              <li><a href="{{ h.url_for('home.about') }}">{{ _('About {0}').format(g.site_title) }}</a></li>
+              <li><a href="https://www.wprdc.org">The Western Pennsylvania Regional Data Center</a></li>
+              <li><a href="https://www.alleghenycounty.us/">Allegheny County</a></li>
+              <li><a href="https://pittsburghpa.gov/">City of Pittsburgh</a></li>
+              <li><a href="https://pitt.edu/">University of Pittsburgh</a></li>
             {% endblock %}
           </ul>
           <ul class="list-unstyled">
