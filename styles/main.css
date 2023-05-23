@@ -395,21 +395,29 @@ header.masthead > .container {
   @apply font-semibold font-mono text-primary;
 }
 
+.dataTables_paginate ul.pagination,
 ul.pagination {
   @apply p-5;
   @apply font-mono text-lg font-semibold;
 }
 
+
+.dataTables_paginate ul.pagination > li a,
 ul.pagination > li a {
   @apply mr-3;
   @apply underline;
   @apply hover:bg-primary hover:text-text;
+  @apply text-text;
 }
 
+.dataTables_paginate ul.pagination > li.active a {
+    @apply text-white bg-text;
+}
 ul.pagination > li.active a {
   @apply no-underline;
 }
 
+.dataTables_paginate ul.pagination > li.disabled a,
 ul.pagination > li.disabled a {
   @apply no-underline text-textSecondary;
   @apply hover:no-underline cursor-default;

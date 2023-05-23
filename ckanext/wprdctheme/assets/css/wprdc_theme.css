@@ -1133,7 +1133,7 @@ header.masthead > .container {
   color: rgb(252 236 82 / var(--tw-text-opacity));
 }
 
-ul.pagination {
+.dataTables_paginate ul.pagination, ul.pagination {
   padding: 1.25rem;
   font-family: "JetBrains Mono", monospace;
   font-size: 1.125rem;
@@ -1141,30 +1141,42 @@ ul.pagination {
   font-weight: 600;
 }
 
-ul.pagination > li a {
+.dataTables_paginate ul.pagination > li a, ul.pagination > li a {
   margin-right: 0.75rem;
   text-decoration: underline;
 }
 
-ul.pagination > li a:hover {
+.dataTables_paginate ul.pagination > li a:hover, ul.pagination > li a:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(252 236 82 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
   color: rgb(24 24 24 / var(--tw-text-opacity));
 }
 
+.dataTables_paginate ul.pagination > li a, ul.pagination > li a {
+  --tw-text-opacity: 1;
+  color: rgb(24 24 24 / var(--tw-text-opacity));
+}
+
+.dataTables_paginate ul.pagination > li.active a {
+  --tw-bg-opacity: 1;
+  background-color: rgb(24 24 24 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
 ul.pagination > li.active a {
   text-decoration: none;
 }
 
-ul.pagination > li.disabled a {
+.dataTables_paginate ul.pagination > li.disabled a, ul.pagination > li.disabled a {
   --tw-text-opacity: 1;
   color: rgb(82 82 91 / var(--tw-text-opacity));
   text-decoration: none;
   cursor: default;
 }
 
-ul.pagination > li.disabled a:hover {
+.dataTables_paginate ul.pagination > li.disabled a:hover, ul.pagination > li.disabled a:hover {
   text-decoration: none;
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
