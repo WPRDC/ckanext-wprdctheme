@@ -13,6 +13,70 @@
 @tailwind components;
 @tailwind utilities;
 
+#construction-notice{
+  @apply border-2 border-black;
+  @apply p-2 mt-6;
+  @apply ring-2 ring-primary;
+}
+#construction-notice p {
+  @apply mt-1;
+}
+#construction-notice a {
+  @apply underline;
+}
+#terms-dialog {
+  @apply fixed top-0 right-0 left-0 bottom-0;
+  @apply max-w-4xl w-full max-h-3/4;
+  @apply border-2 border-black shadow-xl;
+}
+
+#terms-dialog::backdrop{
+  @apply backdrop-blur;
+}
+
+#terms-dialog h1 {
+  @apply text-2xl font-bold;
+}
+#terms-dialog h2 {
+  @apply text-textSecondary font-bold;
+}
+
+#terms-dialog .subtitle {
+  @apply text-lg font-medium italic;
+  @apply mb-4;
+}
+
+#terms-dialog button {
+  @apply mt-2;
+}
+
+#terms-dialog .agree-cta {
+  @apply font-semibold;
+}
+
+#terms-dialog .text-box {
+  @apply max-h-72;
+  @apply overflow-auto;
+  @apply font-sans;
+  @apply border p-2;
+  @apply mb-3;
+}
+
+#terms-dialog ol {
+  @apply ml-3;
+  @apply list-decimal;
+}
+
+.text-box li {
+  @apply ml-3;
+}
+
+.text-box p,
+.text-box li {
+  @apply mt-2;
+}
+
+
 
 /*****************/
 /* Theme styles  */

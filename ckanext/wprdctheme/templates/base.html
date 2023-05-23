@@ -1,9 +1,17 @@
 {% ckan_extends %}
-
 {% block styles %}
   {{ super() }}
 
+
+
   {% asset 'wprdctheme/wprdc_theme-css' %}
   {% asset 'wprdctheme/wprdc_theme-css' %}
+    {% asset 'wprdctheme/wprdc_theme_popover-js' %}
+
+{% endblock %}
+
+{% block body_extras %}
+  {{ super() }}
+{% snippet "snippets/terms-modal.html" %}
 
 {% endblock %}
