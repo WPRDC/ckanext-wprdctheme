@@ -105,8 +105,8 @@
 		            (org_type ~ '.index',
                   h.humanize_entity_type('organization', org_type, 'main nav') or _('Organizations'), ['organization']),
 		            (group_type ~ '.index',
-                  h.humanize_entity_type('group', group_type, 'main nav') or _('Groups'), ['group']),
-		            ('home.about', _('About')) ) }}
+                  h.humanize_entity_type('group', group_type, 'main nav') or _('Topics'), ['group'])
+		            ) }}
               {% endblock %}
               </ul>
 

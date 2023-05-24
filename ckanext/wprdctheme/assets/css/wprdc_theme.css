@@ -435,7 +435,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   display: none;
 }
 
-[id=construction-notice], [id=terms-dialog], .text-box, .primary, .search-form, .badge, .dataset-item, .site-search, .btn, .search-input-group, button, .masthead, [id=partner-links] {
+[id=construction-notice], [id=terms-dialog], .text-box, .primary, .search-form, .badge, .dataset-item, .site-search, .btn, .search-input-group, button, .masthead {
   --tw-border-opacity: 1;
   border-color: rgb(229 231 235 / var(--tw-border-opacity));
 }
@@ -1209,7 +1209,6 @@ ul.pagination > li.active a {
 
 #partner-links {
   margin-bottom: 0.5rem;
-  border-bottom-width: 1px;
 }
 
 /* nav-tabs */

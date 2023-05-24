@@ -438,7 +438,7 @@ ul.pagination > li.disabled a {
 }
 
 #partner-links {
-  @apply border-b mb-2;
+  @apply mb-2;
 }
 
 /* nav-tabs */
