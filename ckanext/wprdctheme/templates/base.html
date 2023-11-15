@@ -1,10 +1,5 @@
 {% ckan_extends %}
 {% block styles %}
-    <style>
-        html {
-            visibility: hidden;
-        }
-    </style>
     {{ super() }}
 
     {% asset 'wprdctheme/wprdc_theme-css' %}
@@ -12,8 +7,23 @@
 
 {% endblock %}
 
+{% block bodytag %} style="visibility: hidden"{% endblock %}
+
 {% block body_extras %}
     {{ super() }}
+    <script>
+        let domReady = (cb) => {
+            document.readyState === 'interactive' || document.readyState === 'complete'
+                ? cb()
+                : document.addEventListener('DOMContentLoaded', cb);
+        };
+
+        domReady(() => {
+            // Display body when DOM is loaded
+            document.body.style.visibility = 'visible';
+        });
+    </script>
+
     <!-- Matomo -->
     <script>
         var _paq = window._paq = window._paq || [];
@@ -33,9 +43,16 @@
     <!-- End Matomo Code -->
 
     {% snippet "snippets/terms-modal.html" %}
-
+    <noscript>
+        <style>
+            body {
+                visibility: visible !important;
+            }
+        </style>
+    </noscript>
 {% endblock %}
 
 {% block scripts %}
     <script>let FF_FOUC_FIX;</script>
 {% endblock %}
+
