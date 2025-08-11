@@ -7,10 +7,18 @@
 
 {% endblock %}
 
-{% block bodytag %} style="visibility: hidden"{% endblock %}
+{% block bodytag %} style=""{% endblock %}
 
-{% block body_extras %}
-    {{ super() }}
+{% block scripts %}
+    {% snippet "snippets/terms-modal.html" %}
+    <noscript>
+        <style>
+            body {
+                visibility: visible !important;
+            }
+        </style>
+    </noscript>
+
     <script>
         let domReady = (cb) => {
             document.readyState === 'interactive' || document.readyState === 'complete'
@@ -26,6 +34,7 @@
 
     <!-- Matomo -->
     <script>
+    console.debug('hey')
         var _paq = window._paq = window._paq || [];
         /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
         _paq.push(['trackPageView']);
@@ -41,18 +50,5 @@
         })();
     </script>
     <!-- End Matomo Code -->
-
-    {% snippet "snippets/terms-modal.html" %}
-    <noscript>
-        <style>
-            body {
-                visibility: visible !important;
-            }
-        </style>
-    </noscript>
-{% endblock %}
-
-{% block scripts %}
-    <script>let FF_FOUC_FIX;</script>
 {% endblock %}
 

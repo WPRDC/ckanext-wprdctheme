@@ -1,0 +1,16 @@
+{% ckan_extends %}
+
+{% block resource_data_dictionary %}
+  {% snippet 'snippets/dictionary_view.html', ddict=h.datastore_dictionary(res.id), res=res %}
+{% endblock %}
+
+{% block secondary %}
+{% endblock %}
+
+{% block primary %}
+  <div class="primary resource-read-primary border-l-0">
+    {% block primary_content %}
+      {{ super() }}
+    {% endblock %}
+  </div>
+{% endblock %}

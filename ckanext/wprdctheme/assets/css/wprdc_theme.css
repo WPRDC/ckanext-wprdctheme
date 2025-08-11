@@ -19,8 +19,6 @@
 2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
 */
 
-
-
 *,
 ::before,
 ::after {
@@ -437,7 +435,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   display: none;
 }
 
-[id=construction-notice], [id=terms-dialog], .text-box, .primary, .search-form, .badge, .dataset-item, .site-search, .btn, .search-input-group, button, .masthead {
+.border-l-0, [id=terms-dialog], .text-box, .primary, .search-form, .badge, .dataset-item, .site-search, .btn, .search-input-group, button, .masthead, .site-title {
   --tw-border-opacity: 1;
   border-color: rgb(229 231 235 / var(--tw-border-opacity));
 }
@@ -449,7 +447,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-shadow-colored: 0 0 #0000;
 }
 
-[id=construction-notice], .site-search, .search-input-group, .form-control {
+.site-search, .search-input-group, .form-control {
   --tw-ring-inset: var(--tw-empty,/*!*/ /*!*/);
   --tw-ring-offset-width: 0px;
   --tw-ring-offset-color: #fff;
@@ -490,9 +488,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 100%;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 576px) {
   .container {
-    max-width: 640px;
+    max-width: 576px;
   }
 }
 
@@ -502,22 +500,26 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 992px) {
   .container {
-    max-width: 1024px;
+    max-width: 992px;
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1200px) {
   .container {
-    max-width: 1280px;
+    max-width: 1200px;
   }
 }
 
-@media (min-width: 1536px) {
+@media (min-width: 1300px) {
   .container {
-    max-width: 1536px;
+    max-width: 1300px;
   }
+}
+
+.visible {
+  visibility: visible;
 }
 
 .mb-2 {
@@ -536,40 +538,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   display: none;
 }
 
-.truncate {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+.max-w-full {
+  max-width: 100%;
 }
 
-.capitalize {
-  text-transform: capitalize;
+.overflow-x-auto {
+  overflow-x: auto;
 }
 
-.text-white {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-#construction-notice {
-  border-width: 2px;
-  --tw-border-opacity: 1;
-  border-color: rgb(0 0 0 / var(--tw-border-opacity));
-  margin-top: 1.5rem;
-  padding: 0.5rem;
-  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
-  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
-  --tw-ring-opacity: 1;
-  --tw-ring-color: rgb(252 236 82 / var(--tw-ring-opacity));
-}
-
-#construction-notice p {
-  margin-top: 0.25rem;
-}
-
-#construction-notice a {
-  text-decoration: underline;
+.border-l-0 {
+  border-left-width: 0px;
 }
 
 #terms-dialog {
@@ -734,6 +712,12 @@ a:hover {
 }
 
 /* END GLOBAL STYLES */
+
+/* scheming/package/resource_read.thml */
+
+.row.wrapper .resource-read-primary.primary {
+  border-width: 0px;
+}
 
 /* snippets/package_item.html */
 
@@ -989,6 +973,9 @@ a:hover {
 
 .search-input-group .input-group-btn > button {
   border-radius: 0px;
+  height: 100%;
+  font-size: 1.5rem;
+  line-height: 2rem;
   --tw-shadow: 0 0 #0000;
   --tw-shadow-colored: 0 0 #0000;
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
@@ -1093,23 +1080,158 @@ a:hover {
   font-weight: 700;
 }
 
-.header-image > .logo {
-  height: 2.5rem;
-  width: 24rem;
-}
-
 .header-image > .logo:hover {
   --tw-bg-opacity: 0;
+}
+
+header.masthead  .header-image > .logo > img {
+  max-height: 100%;
+  width: 16rem;
+  max-width: 100%;
+}
+
+@media (min-width: 768px) {
+  header.masthead  .header-image > .logo > img {
+    width: 20rem;
+  }
+}
+
+@media (min-width: 992px) {
+  header.masthead  .header-image > .logo > img {
+    width: 24rem;
+  }
 }
 
 header.masthead > .container {
   padding-top: 0px;
   padding-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 
-.masthead .navbar {
+@media (min-width: 992px) {
+  header.masthead > .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+header.masthead > .container {
+  max-width: 100%;
+}
+
+header.masthead > .container > nav.navbar.navbar-expand-lg {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 1200px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+@media (min-width: 992px) {
+  header.masthead > .container > nav.navbar.navbar-expand-lg {
+    flex-wrap: nowrap;
+  }
+
+  header.masthead > .container > nav.navbar.navbar-expand-lg {
+    align-items: center;
+  }
+
+  header.masthead > .container > nav.navbar.navbar-expand-lg {
+    justify-items: stretch;
+  }
+}
+
+header.masthead .navbar-nav {
+  margin-top: 0.5rem;
+}
+
+@media (min-width: 992px) {
+  header.masthead .navbar-nav {
+    margin-top: 0px;
+  }
+
+  header.masthead .navbar-nav {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+}
+
+header.masthead > .container > .nav.navbar > .header-image.navbar-left {
+  padding-right: 1rem;
+}
+
+header.masthead > .container > nav.navbar.navbar-expand-lg .navbar-collapse {
+}
+
+nav.navbar.navbar-expand-lg .navbar-collapse {
+  display: none !important;
+}
+
+nav.navbar.navbar-expand-lg .navbar-collapse.show {
+  display: block !important;
+}
+
+@media (min-width: 992px) {
+  nav.navbar.navbar-expand-lg .navbar-collapse {
+    display: flex !important;
+  }
+
+  nav.navbar.navbar-expand-lg .navbar-collapse.show {
+    display: flex !important;
+  }
+}
+
+header.masthead .navbar-toggler {
+  margin-right: 0.5rem;
+  border-radius: 0.125rem;
+  border-style: none;
+  padding: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  header.masthead .navbar-toggler {
+    display: none;
+  }
+}
+
+header.masthead .navbar-toggler > .icon {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 900;
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+header.masthead .navbar-toggler > .text {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.masthead > .container > .navbar {
   padding-top: 0px;
   padding-bottom: 0px;
+}
+
+@media (min-width: 576px) {
+  .masthead > .container > .navbar {
+    justify-content: flex-start;
+  }
+}
+
+@media (min-width: 992px) {
+  .masthead > .container > .navbar {
+    justify-content: space-between;
+  }
 }
 
 .main {
@@ -1524,6 +1646,44 @@ h1.page-heading, .row .primary .module div.module-content h1 {
   margin-top: 0.25rem;
 }
 
+.site-title {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 0.125rem;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(168 162 158 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(252 236 82 / var(--tw-bg-opacity));
+  margin-top: 0px;
+  display: block;
+  padding-left: 0.375rem;
+  padding-right: 0.375rem;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+@media (min-width: 992px) {
+  .site-title {
+    margin-top: 0.5rem;
+  }
+}
+
+.site-title {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 900;
+}
+
+@media (min-width: 992px) {
+  .site-title {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+}
+
 /**********************************************************************************************************/
 
 /* Badges */
@@ -1605,6 +1765,11 @@ a.badge[data-format=html], a.badge[data-format*=html] {
   --tw-text-opacity: 1;
   color: rgb(252 236 82 / var(--tw-text-opacity));
   text-decoration: none;
+}
+
+.table {
+  max-width: 100%;
+  overflow-x: auto;
 }
 
 /* end badges */

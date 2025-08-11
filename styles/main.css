@@ -13,221 +13,214 @@
 @tailwind components;
 @tailwind utilities;
 
-#construction-notice{
-  @apply border-2 border-black;
-  @apply p-2 mt-6;
-  @apply ring-2 ring-primary;
-}
-#construction-notice p {
-  @apply mt-1;
-}
-#construction-notice a {
-  @apply underline;
-}
+
 #terms-dialog {
-  @apply fixed top-0 right-0 left-0 bottom-0;
-  @apply max-w-4xl w-full max-h-3/4;
-  @apply border-2 border-black shadow-xl;
+    @apply fixed top-0 right-0 left-0 bottom-0;
+    @apply max-w-4xl w-full max-h-3/4;
+    @apply border-2 border-black shadow-xl;
 }
 
-#terms-dialog::backdrop{
-  @apply backdrop-blur;
+#terms-dialog::backdrop {
+    @apply backdrop-blur;
 }
 
 #terms-dialog h1 {
-  @apply text-2xl font-bold;
+    @apply text-2xl font-bold;
 }
+
 #terms-dialog h2 {
-  @apply text-textSecondary font-bold;
+    @apply text-textSecondary font-bold;
 }
 
 #terms-dialog .subtitle {
-  @apply text-lg font-medium italic;
-  @apply mb-4;
+    @apply text-lg font-medium italic;
+    @apply mb-4;
 }
 
 #terms-dialog button {
-  @apply mt-2;
+    @apply mt-2;
 }
 
 #terms-dialog .agree-cta {
-  @apply font-semibold;
+    @apply font-semibold;
 }
 
 #terms-dialog .text-box {
-  @apply max-h-72;
-  @apply overflow-auto;
-  @apply font-sans;
-  @apply border p-2;
-  @apply mb-3;
+    @apply max-h-72;
+    @apply overflow-auto;
+    @apply font-sans;
+    @apply border p-2;
+    @apply mb-3;
 }
 
 #terms-dialog ol {
-  @apply ml-3;
-  @apply list-decimal;
+    @apply ml-3;
+    @apply list-decimal;
 }
 
 .text-box li {
-  @apply ml-3;
+    @apply ml-3;
 }
 
 .text-box p,
 .text-box li {
-  @apply mt-2;
+    @apply mt-2;
 }
-
 
 
 /*****************/
 /* Theme styles  */
 /*****************/
 #flDebug .flDebugPanelContent {
-  overflow-y: auto !important;
+    overflow-y: auto !important;
 }
 
 body {
-  @apply font-mono;
+    @apply font-mono;
 }
 
 h3 {
-  @apply font-mono;
+    @apply font-mono;
 }
 
 a {
-  @apply text-text hover:text-text;
-  @apply hover:bg-primary;
+    @apply text-text hover:text-text;
+    @apply hover:bg-primary;
 }
 
 #content {
-  @apply max-w-6xl mx-auto;
+    @apply max-w-6xl mx-auto;
 }
 
 .row.wrapper {
-  @apply rounded-none;
-  @apply border-black;
-  @apply shadow-xl;
+    @apply rounded-none;
+    @apply border-black;
+    @apply shadow-xl;
 }
 
 
 .main .container {
-  @apply w-full max-w-full;
+    @apply w-full max-w-full;
 }
 
 .module > .page-header {
-  @apply bg-white;
+    @apply bg-white;
 }
 
 .row.wrapper > .primary {
-  @apply p-0 border-l-black border-l;
+    @apply p-0 border-l-black border-l;
 }
 
 .row.wrapper > .primary .module-content {
-  @apply p-0;
+    @apply p-0;
 }
 
-
 .search-form {
-  @apply mb-0;
-  @apply border-b border-b-black border-solid;
+    @apply mb-0;
+    @apply border-b border-b-black border-solid;
 }
 
 .badge {
-  @apply rounded-none border-black border;
-  @apply font-mono;
+    @apply rounded-none border-black border;
+    @apply font-mono;
 }
 
 /* END GLOBAL STYLES */
 
+/* scheming/package/resource_read.thml */
+.row.wrapper .resource-read-primary.primary {
+    @apply border-0;
+}
 
 /* snippets/package_item.html */
 .w_dataset-heading-section {
-  @apply flex flex-col-reverse;
+    @apply flex flex-col-reverse;
 }
 
 
 .w_dataset-heading-section h2 {
-  @apply mt-1;
-  @apply text-2xl font-mono font-bold;
+    @apply mt-1;
+    @apply text-2xl font-mono font-bold;
 }
 
 .w_dataset-heading-section h2 a {
-  @apply inline;
-  @apply hover:bg-primary;
-  @apply underline underline-offset-2 decoration-2;
+    @apply inline;
+    @apply hover:bg-primary;
+    @apply underline underline-offset-2 decoration-2;
 
 }
 
 .row .primary .module div.module-content h2.dataset-heading {
-  @apply py-1 m-0;
+    @apply py-1 m-0;
 }
 
 
 /* grid items */
 .media-grid {
-  @apply -mx-5;
-  @apply p-5;
-  @apply bg-none;
+    @apply -mx-5;
+    @apply p-5;
+    @apply bg-none;
 }
 
 .media-grid .media-item {
-  @apply ml-0 mr-5 mb-5;
-  @apply rounded-none border-black;
+    @apply ml-0 mr-5 mb-5;
+    @apply rounded-none border-black;
 }
 
 .media-grid .media-item .media-description {
-  @apply pb-2 font-sans;
+    @apply pb-2 font-sans;
 
 }
 
 .media-grid .media-item a.media-view {
-  @apply hover:bg-opacity-0;
-  @apply shadow-lg hover:shadow-2xl;
-  @apply rounded-none border-black;
+    @apply hover:bg-opacity-0;
+    @apply shadow-lg hover:shadow-2xl;
+    @apply rounded-none border-black;
 }
 
 .row .primary .media-grid .media-item > h2.media-heading {
-  @apply text-base font-bold;
+    @apply text-base font-bold;
 }
 
 
 .w_dataset-heading-org {
-  @apply font-mono text-xs;
-  @apply font-semibold text-textSecondary;
+    @apply font-mono text-xs;
+    @apply font-semibold text-textSecondary;
 }
 
 .dataset-item {
-  @apply relative;
-  @apply border-b border-black ;
-  @apply py-5 mb-0;
+    @apply relative;
+    @apply border-b border-black ;
+    @apply py-5 mb-0;
 }
 
 .dataset-item:last-of-type {
-  @apply py-5 !important;
+    @apply py-5 !important;
 }
 
 .dataset-heading {
-  @apply text-xl font-bold leading-none;
+    @apply text-xl font-bold leading-none;
 }
 
 .w_dataset-item-metadata-list dl {
-  @apply inline font-mono;
-  @apply font-mono text-xs;
+    @apply inline font-mono;
+    @apply font-mono text-xs;
 }
 
 .w_dataset-item-metadata-list dt {
-  @apply font-bold inline-block;
-  @apply mr-2;
-  @apply font-mono text-xs;
+    @apply font-bold inline-block;
+    @apply mr-2;
+    @apply font-mono text-xs;
 }
 
 .w_dataset-item-metadata-list dd {
-  @apply inline-block;
-  @apply font-mono text-xs;
+    @apply inline-block;
+    @apply font-mono text-xs;
 }
 
 .w_dataset-item-notes {
-  @apply my-1;
-  @apply text-sm font-sans;
+    @apply my-1;
+    @apply text-sm font-sans;
 }
 
 /* snippets/facet_list.html */
@@ -235,300 +228,358 @@ a {
 }
 
 .w_dataset-resources {
-  @apply m-0;
+    @apply m-0;
 }
 
 .w_dataset-item-footer {
-  @apply pt-2;
-  @apply flex items-center justify-between;
+    @apply pt-2;
+    @apply flex items-center justify-between;
 }
 
 .secondary li.nav-item a {
-  @apply flex items-center;
-  @apply hover:bg-primary hover:text-text;
+    @apply flex items-center;
+    @apply hover:bg-primary hover:text-text;
 }
 
 .secondary li.nav-item a .item-label {
-  @apply mr-1;
-  @apply truncate;
+    @apply mr-1;
+    @apply truncate;
 }
 
 .secondary li.nav-item.active a::before {
-  @apply content-none;
+    @apply content-none;
 }
 
 .secondary li.nav-item.active a {
-  @apply bg-black text-white font-bold;
-  @apply hover:bg-black hover:text-white;
+    @apply bg-black text-white font-bold;
+    @apply hover:bg-black hover:text-white;
 }
 
 
 .masthead form.site-search {
-  @apply hover:ring-2 hover:ring-primary;
-  @apply border-black border-2;
+    @apply hover:ring-2 hover:ring-primary;
+    @apply border-black border-2;
 }
 
 .masthead form.site-search > input,
 #field-sitewide-search {
-  @apply rounded-none;
-  @apply mr-0 !important;
+    @apply rounded-none;
+    @apply mr-0 !important;
 }
 
 .masthead form.site-search > button.btn {
-  @apply m-0;
-  @apply rounded-none;
-  @apply shadow-none;
-  @apply border-0 border-l-2;
+    @apply m-0;
+    @apply rounded-none;
+    @apply shadow-none;
+    @apply border-0 border-l-2;
 }
 
 /* snippets/search_form.html */
 .search-input-group {
-  @apply hover:ring-2 hover:ring-primary;
-  @apply border-black border-2;
+    @apply hover:ring-2 hover:ring-primary;
+    @apply border-black border-2;
 }
 
 .search-input-group > input {
-  @apply rounded-none;
+    @apply rounded-none;
 }
 
 .search-input-group .input-group-btn > button {
-  @apply rounded-none;
-  @apply shadow-none;
-  @apply border-0 border-l-2;
-  @apply hover:bg-primary !important;
+    @apply rounded-none;
+    @apply shadow-none text-2xl h-full;
+    @apply border-0 border-l-2;
+    @apply hover:bg-primary !important;
 }
 
 .control-order-by select {
-  @apply rounded-none;
+    @apply rounded-none;
 }
 
 .form-control:focus {
-  @apply border-inherit;
-  @apply ring-2 ring-secondary-500;
-  @apply shadow-none;
+    @apply border-inherit;
+    @apply ring-2 ring-secondary-500;
+    @apply shadow-none;
 }
 
 .search-form h1 {
-  @apply font-mono;
+    @apply font-mono;
 }
 
 /* snippets/facet_list.html */
 .secondary h2.module-heading {
-  @apply text-sm font-bold font-mono;
+    @apply text-sm font-bold font-mono;
 }
 
 .w_facet-list .item-label {
-  @apply text-xs;
+    @apply text-xs;
 }
 
 .w_facet-list .nav-item a {
-  @apply hover:bg-primary;
+    @apply hover:bg-primary;
 }
 
 /* header.html */
 .account-masthead {
-  @apply bg-black text-white;
+    @apply bg-black text-white;
 }
 
 .account-masthead .list-unstyled img {
-  @apply inline-block;
+    @apply inline-block;
 }
 
 .masthead {
-  @apply bg-white;
-  @apply text-black;
-  @apply border-b-black border-b-2;
+    @apply bg-white;
+    @apply text-black;
+    @apply border-b-black border-b-2;
 }
 
 .masthead .main-navbar ul li {
-  @apply rounded-none;
+    @apply rounded-none;
 
 }
 
 .masthead .main-navbar ul li a {
-  @apply text-black font-bold;
-  @apply font-mono underline;
-  @apply rounded-none;
-  /*@apply px-1.5 py-1 mr-4;*/
+    @apply text-black font-bold;
+    @apply font-mono underline;
+    @apply rounded-none;
+    /*@apply px-1.5 py-1 mr-4;*/
 }
 
 .masthead .main-navbar ul li:hover a,
 .masthead .main-navbar ul li:focus a {
-  @apply text-black  font-extrabold bg-primary;
-  @apply rounded-none decoration-2;
-  @apply bg-opacity-0;
+    @apply text-black  font-extrabold bg-primary;
+    @apply rounded-none decoration-2;
+    @apply bg-opacity-0;
 }
 
 .masthead .main-navbar ul li.active a {
-  @apply bg-white bg-opacity-0 no-underline;
-  @apply font-bold;
+    @apply bg-white bg-opacity-0 no-underline;
+    @apply font-bold;
 }
 
 .header-image > .logo {
-  @apply h-10 w-96;
-  @apply hover:bg-opacity-0;
+    @apply hover:bg-opacity-0;
+}
+
+header.masthead  .header-image > .logo > img {
+    @apply max-h-full max-w-full w-64 md:w-80 lg:w-96;
+
 }
 
 header.masthead > .container {
-  @apply py-0;
+    @apply py-0;
+    @apply mx-0 lg:mx-auto;
+    @apply max-w-full;
 }
 
-.masthead .navbar {
-  @apply py-0;
+header.masthead > .container > nav.navbar.navbar-expand-lg {
+    @apply  w-full max-w-screen-xl mx-auto;
+    @apply items-start lg:items-center flex-wrap lg:flex-nowrap justify-start lg:justify-items-stretch;
+}
+
+
+header.masthead .navbar-nav {
+    @apply mt-2 lg:mt-0;
+    @apply lg:text-lg;
+}
+
+header.masthead > .container > .nav.navbar > .header-image.navbar-left {
+    @apply pr-4;
+}
+
+header.masthead > .container > nav.navbar.navbar-expand-lg .navbar-collapse {
+}
+
+nav.navbar.navbar-expand-lg .navbar-collapse {
+    display: none !important;
+
+}
+
+nav.navbar.navbar-expand-lg .navbar-collapse.show {
+    display: block !important;
+}
+
+@media (min-width: 992px) {
+    nav.navbar.navbar-expand-lg .navbar-collapse {
+        display: flex !important;
+    }
+
+    nav.navbar.navbar-expand-lg .navbar-collapse.show {
+        display: flex !important;
+    }
+}
+
+header.masthead .navbar-toggler {
+    @apply rounded-sm  border-none p-1 mr-2;
+    @apply flex flex-col items-center lg:hidden;
+}
+
+header.masthead .navbar-toggler > .icon {
+    @apply text-3xl text-black font-black;
+}
+
+header.masthead .navbar-toggler > .text {
+    @apply uppercase text-black font-bold text-xs;
+}
+
+.masthead > .container > .navbar {
+    @apply py-0;
+    @apply sm:justify-start lg:justify-between;
 }
 
 .main {
-  /*@apply bg-[#f4f4f4];*/
-  background-image: none;
+    /*@apply bg-[#f4f4f4];*/
+    background-image: none;
 }
 
 .w_order-by-label {
-  @apply font-mono;
+    @apply font-mono;
 }
 
 .filter-list > .facet {
-  @apply font-mono;
+    @apply font-mono;
 }
 
 .filtered.pill {
-  @apply rounded-sm bg-slate-800;
-  @apply font-semibold font-mono text-primary;
+    @apply rounded-sm bg-slate-800;
+    @apply font-semibold font-mono text-primary;
 }
 
 .dataTables_paginate ul.pagination,
 ul.pagination {
-  @apply p-5;
-  @apply font-mono text-lg font-semibold;
+    @apply p-5;
+    @apply font-mono text-lg font-semibold;
 }
 
 
 .dataTables_paginate ul.pagination > li a,
 ul.pagination > li a {
-  @apply mr-3;
-  @apply underline;
-  @apply hover:bg-primary hover:text-text;
-  @apply text-text;
+    @apply mr-3;
+    @apply underline;
+    @apply hover:bg-primary hover:text-text;
+    @apply text-text;
 }
 
 .dataTables_paginate ul.pagination > li.active a {
     @apply text-white bg-text;
 }
+
 ul.pagination > li.active a {
-  @apply no-underline;
+    @apply no-underline;
 }
 
 .dataTables_paginate ul.pagination > li.disabled a,
 ul.pagination > li.disabled a {
-  @apply no-underline text-textSecondary;
-  @apply hover:no-underline cursor-default;
-  @apply hover:bg-white hover:text-text;
+    @apply no-underline text-textSecondary;
+    @apply hover:no-underline cursor-default;
+    @apply hover:bg-white hover:text-text;
 }
 
 .w_search-results-api-msg {
-  @apply italic;
-  @apply pb-2;
+    @apply italic;
+    @apply pb-2;
 }
 
 .site-footer {
-  @apply bg-text text-white;
+    @apply bg-text text-white;
 }
 
 .site-footer a {
-  @apply font-semibold text-white hover:text-text;
+    @apply font-semibold text-white hover:text-text;
 }
 
 #partner-links {
-  @apply mb-2;
+    @apply mb-2;
 }
 
 /* nav-tabs */
 .nav.nav-tabs {
-  @apply h-full;
-  @apply p-0 m-0;
+    @apply h-full;
+    @apply p-0 m-0;
 
 }
 
 .nav.nav-tabs li {
-  @apply shadow-none;
-  @apply h-full;
+    @apply shadow-none;
+    @apply h-full;
 }
 
 .nav.nav-tabs li a {
-  @apply h-full;
-  @apply text-black font-semibold;
-  @apply rounded-none;
-  @apply hover:text-black hover:bg-primary;
+    @apply h-full;
+    @apply text-black font-semibold;
+    @apply rounded-none;
+    @apply hover:text-black hover:bg-primary;
 }
 
 .nav.nav-tabs li.active a {
-  @apply h-full;
-  @apply bg-text text-white font-bold;
-  @apply hover:text-primary;
+    @apply h-full;
+    @apply bg-text text-white font-bold;
+    @apply hover:text-primary;
 }
 
 .page_primary_action {
-  @apply text-right py-2  m-0;
+    @apply text-right py-2  m-0;
 }
 
 
 .page-header .content_action {
-  @apply py-2 pr-5;
+    @apply py-2 pr-5;
 }
 
 .btn {
-  @apply rounded-none border-2 border-black;
-  @apply shadow hover:shadow-lg;
-  @apply active:shadow-sm focus:shadow-sm !important;
-  @apply hover:bg-primary;
-  @apply py-1 px-2;
+    @apply rounded-none border-2 border-black;
+    @apply shadow hover:shadow-lg;
+    @apply active:shadow-sm focus:shadow-sm !important;
+    @apply hover:bg-primary;
+    @apply py-1 px-2;
 }
 
 .btn.btn-light,
 .btn.btn-default {
-  @apply text-black bg-white;
-  @apply hover:bg-white !important;
-  @apply border-black !important;
+    @apply text-black bg-white;
+    @apply hover:bg-white !important;
+    @apply border-black !important;
 }
 
 .btn.btn-primary {
-  @apply text-white bg-slate-900;
+    @apply text-white bg-slate-900;
 }
 
 .btn.btn-success {
-  @apply text-white bg-green-600;
+    @apply text-white bg-green-600;
 }
 
 .btn.btn-default {
 }
 
 .btn.btn-danger {
-  @apply bg-red-600;
+    @apply bg-red-600;
 }
 
 .row .primary .module div.module-content {
-  @apply p-5;
+    @apply p-5;
 }
 
 h1.page-heading,
 .row .primary .module div.module-content h1 {
-  @apply text-3xl;
+    @apply text-3xl;
 }
 
 .row .primary .module div.module-content .search-form h1 {
-  @apply text-lg font-bold;
+    @apply text-lg font-bold;
 }
 
 .row .primary .module div.module-content h2 {
-  @apply text-2xl;
-  @apply mt-5 mb-3;
+    @apply text-2xl;
+    @apply mt-5 mb-3;
 }
 
 .additional-info {
 }
 
 .additional-info h3 {
-  @apply text-xl;
-  @apply mt-5 mb-3;
+    @apply text-xl;
+    @apply mt-5 mb-3;
 }
 
 
@@ -536,12 +587,12 @@ h1.page-heading,
 }
 
 .notes.embedded-content {
-  @apply max-w-none;
-  @apply font-sans !important;
+    @apply max-w-none;
+    @apply font-sans !important;
 }
 
 .notes.embedded-content {
-  /*@apply prose;*/
+    /*@apply prose;*/
 }
 
 .row .primary .resources {
@@ -551,140 +602,146 @@ h1.page-heading,
 }
 
 .resource-item {
-  @apply hover:bg-white;
+    @apply hover:bg-white;
 
 }
 
 .resource-item .heading {
-  @apply hover:bg-primary font-bold underline decoration-2;
+    @apply hover:bg-primary font-bold underline decoration-2;
 
 }
 
 .toolbar .breadcrumb > li a {
-  @apply text-black;
+    @apply text-black;
 }
 
 .tag-list {
-  @apply border-none bg-white;
+    @apply border-none bg-white;
 }
 
 .tag-list .tag {
-  @apply uppercase text-sm font-semibold;
-  @apply rounded border-black;
-  @apply bg-gray-100 hover:bg-primary hover:text-black;
-  @apply shadow-none hover:shadow-sm;
-  @apply active:shadow-inner active:bg-white;
+    @apply uppercase text-sm font-semibold;
+    @apply rounded border-black;
+    @apply bg-gray-100 hover:bg-primary hover:text-black;
+    @apply shadow-none hover:shadow-sm;
+    @apply active:shadow-inner active:bg-white;
 }
 
 .module-resource {
-  @apply p-0;
+    @apply p-0;
 }
 
 .module-resource .actions {
-  @apply top-0 right-0;
+    @apply top-0 right-0;
 }
 
 .module-resource .module-content {
-  @apply p-5 m-0;
+    @apply p-5 m-0;
 }
 
 
 /* embedded content */
 .notes.prose {
-  @apply py-3;
+    @apply py-3;
 }
 
 .notes.prose h3 {
-  @apply text-xl;
+    @apply text-xl;
 }
 
 .notes.prose,
 .embedded-content {
-  @apply text-base font-sans text-text;
-  @apply leading-relaxed;
+    @apply text-base font-sans text-text;
+    @apply leading-relaxed;
 }
 
 .notes.prose p,
 .embedded-content p {
-  @apply py-2;
+    @apply py-2;
 }
 
 .notes.prose a,
 .embedded-content a {
-  @apply font-semibold underline;
-  @apply hover:text-text hover:bg-primary;
+    @apply font-semibold underline;
+    @apply hover:text-text hover:bg-primary;
 }
 
 .primary .module.w_resource_module {
 }
 
 .context-info p.description {
-  @apply font-sans;
+    @apply font-sans;
 }
 
 .context-info .read-more {
-  @apply mt-1;
+    @apply mt-1;
+}
+
+.site-title {
+    @apply bg-primary w-fit rounded-sm border border-stone-400 ;
+    @apply block px-1.5 py-0 mt-0 lg:mt-2;
+    @apply font-mono text-sm lg:text-lg font-black;
 }
 
 /**********************************************************************************************************/
 /* Badges */
 .badge.badge-info,
 .badge.dataset-private {
-  @apply text-black text-xs bg-primary;
-  @apply rounded-sm px-1.5 py-0.5;
+    @apply text-black text-xs bg-primary;
+    @apply rounded-sm px-1.5 py-0.5;
 }
 
 
 /* Override badge colors */
 a.badge[data-format=html],
 a.badge[data-format*=html] {
-  @apply bg-sky-800;
+    @apply bg-sky-800;
 }
 
 .badge[data-format=json],
 .badge[data-format*=json] {
-  @apply bg-red-600;
+    @apply bg-red-600;
 }
 
 .badge[data-format=geojson],
 .badge[data-format=shp],
 .badge[data-format=kml] {
-  @apply bg-green-800;
+    @apply bg-green-800;
 }
 
 .badge[data-format=xml],
 .badge[data-format*=xml] {
-  @apply bg-red-500;
+    @apply bg-red-500;
 }
 
 .badge[data-format=text],
 .badge[data-format*=text] {
-  @apply bg-blue-800;
+    @apply bg-blue-800;
 }
 
 .badge[data-format=csv],
 .badge[data-format*=csv] {
-  @apply bg-amber-500;
+    @apply bg-amber-500;
 }
 
 .badge[data-format=xls],
 .badge[data-format*=xls] {
-  @apply bg-green-600;
+    @apply bg-green-600;
 }
 
 .badge[data-format=zip],
 .badge[data-format*=zip] {
-  @apply bg-slate-700;
+    @apply bg-slate-700;
 }
 
 .badge[data-format=api],
 .badge[data-format*=api] {
-  @apply bg-pink-700;
+    @apply bg-pink-700;
 }
 
 .badge[data-format=pdf],
 .badge[data-format*=pdf] {
-  @apply bg-red-800;
+    @apply bg-red-800;
 }
 
 .badge[data-format=rdf],
@@ -692,14 +749,19 @@ a.badge[data-format*=html] {
 .badge[data-format*=nquad],
 .badge[data-format*=ntriples],
 .badge[data-format*=turtle] {
-  @apply bg-sky-800;
+    @apply bg-sky-800;
 }
 
 .badge-default[href]:hover,
 .badge-default[href]:focus {
-  @apply bg-primary text-primary;
-  text-decoration: none;
+    @apply bg-primary text-primary;
+    text-decoration: none;
 }
+
+.table {
+    @apply overflow-x-auto max-w-full;
+}
+
 
 /* end badges */
 /**********************************************************************************************************/
@@ -712,116 +774,116 @@ a.badge[data-format*=html] {
 /* JetBrains Mono           */
 /****************************/
 @font-face {
-  font-family: "JetBrains Mono";
-  src: url("/fonts/JetBrainsMono/JetBrainsMono-Bold.woff2") format("woff2");
-  font-weight: 700;
-  font-style: normal;
+    font-family: "JetBrains Mono";
+    src: url("/fonts/JetBrainsMono/JetBrainsMono-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: "JetBrains Mono";
-  src: url("/fonts/JetBrainsMono/JetBrainsMono-BoldItalic.woff2") format("woff");
-  font-weight: 700;
-  font-style: italic;
+    font-family: "JetBrains Mono";
+    src: url("/fonts/JetBrainsMono/JetBrainsMono-BoldItalic.woff2") format("woff");
+    font-weight: 700;
+    font-style: italic;
 }
 
 @font-face {
-  font-family: "JetBrains Mono";
-  src: url("/fonts/JetBrainsMono/JetBrainsMono-ExtraBold.woff2") format("woff");
-  font-weight: 800;
-  font-style: normal;
+    font-family: "JetBrains Mono";
+    src: url("/fonts/JetBrainsMono/JetBrainsMono-ExtraBold.woff2") format("woff");
+    font-weight: 800;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: "JetBrains Mono";
-  src: url("/fonts/JetBrainsMono/JetBrainsMono-ExtraBoldItalic.woff2") format("woff");
-  font-weight: 800;
-  font-style: italic;
+    font-family: "JetBrains Mono";
+    src: url("/fonts/JetBrainsMono/JetBrainsMono-ExtraBoldItalic.woff2") format("woff");
+    font-weight: 800;
+    font-style: italic;
 }
 
 @font-face {
-  font-family: "JetBrains Mono";
-  src: url("/fonts/JetBrainsMono/JetBrainsMono-ExtraLight.woff2") format("woff");
-  font-weight: 200;
-  font-style: normal;
+    font-family: "JetBrains Mono";
+    src: url("/fonts/JetBrainsMono/JetBrainsMono-ExtraLight.woff2") format("woff");
+    font-weight: 200;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: "JetBrains Mono";
-  src: url("/fonts/JetBrainsMono/JetBrainsMono-ExtraLightItalic.woff2") format("woff");
-  font-weight: 200;
-  font-style: italic;
+    font-family: "JetBrains Mono";
+    src: url("/fonts/JetBrainsMono/JetBrainsMono-ExtraLightItalic.woff2") format("woff");
+    font-weight: 200;
+    font-style: italic;
 }
 
 @font-face {
-  font-family: "JetBrains Mono";
-  src: url("/fonts/JetBrainsMono/JetBrainsMono-Italic.woff2") format("woff");
-  font-weight: 400;
-  font-style: italic;
+    font-family: "JetBrains Mono";
+    src: url("/fonts/JetBrainsMono/JetBrainsMono-Italic.woff2") format("woff");
+    font-weight: 400;
+    font-style: italic;
 }
 
 @font-face {
-  font-family: "JetBrains Mono";
-  src: url("/fonts/JetBrainsMono/JetBrainsMono-Light.woff2") format("woff");
-  font-weight: 300;
-  font-style: normal;
+    font-family: "JetBrains Mono";
+    src: url("/fonts/JetBrainsMono/JetBrainsMono-Light.woff2") format("woff");
+    font-weight: 300;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: "JetBrains Mono";
-  src: url("/fonts/JetBrainsMono/JetBrainsMono-LightItalic.woff2") format("woff");
-  font-weight: 300;
-  font-style: italic;
+    font-family: "JetBrains Mono";
+    src: url("/fonts/JetBrainsMono/JetBrainsMono-LightItalic.woff2") format("woff");
+    font-weight: 300;
+    font-style: italic;
 }
 
 @font-face {
-  font-family: "JetBrains Mono";
-  src: url("/fonts/JetBrainsMono/JetBrainsMono-Medium.woff2") format("woff");
-  font-weight: 500;
-  font-style: normal;
+    font-family: "JetBrains Mono";
+    src: url("/fonts/JetBrainsMono/JetBrainsMono-Medium.woff2") format("woff");
+    font-weight: 500;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: "JetBrains Mono";
-  src: url("/fonts/JetBrainsMono/JetBrainsMono-MediumItalic.woff2") format("woff");
-  font-weight: 500;
-  font-style: italic;
+    font-family: "JetBrains Mono";
+    src: url("/fonts/JetBrainsMono/JetBrainsMono-MediumItalic.woff2") format("woff");
+    font-weight: 500;
+    font-style: italic;
 }
 
 
 @font-face {
-  font-family: "JetBrains Mono";
-  src: url("/fonts/JetBrainsMono/JetBrainsMono-Regular.woff2") format("woff");
-  font-weight: 400;
-  font-style: normal;
+    font-family: "JetBrains Mono";
+    src: url("/fonts/JetBrainsMono/JetBrainsMono-Regular.woff2") format("woff");
+    font-weight: 400;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: "JetBrains Mono";
-  src: url("/fonts/JetBrainsMono/JetBrainsMono-SemiBold.woff2") format("woff");
-  font-weight: 600;
-  font-style: normal;
+    font-family: "JetBrains Mono";
+    src: url("/fonts/JetBrainsMono/JetBrainsMono-SemiBold.woff2") format("woff");
+    font-weight: 600;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: "JetBrains Mono";
-  src: url("/fonts/JetBrainsMono/JetBrainsMono-SemiBoldItalic.woff2") format("woff");
-  font-weight: 600;
-  font-style: italic;
+    font-family: "JetBrains Mono";
+    src: url("/fonts/JetBrainsMono/JetBrainsMono-SemiBoldItalic.woff2") format("woff");
+    font-weight: 600;
+    font-style: italic;
 }
 
 @font-face {
-  font-family: "JetBrains Mono";
-  src: url("/fonts/JetBrainsMono/JetBrainsMono-Thin.woff2") format("woff");
-  font-weight: 100;
-  font-style: italic;
+    font-family: "JetBrains Mono";
+    src: url("/fonts/JetBrainsMono/JetBrainsMono-Thin.woff2") format("woff");
+    font-weight: 100;
+    font-style: italic;
 }
 
 @font-face {
-  font-family: "JetBrains Mono";
-  src: url("/fonts/JetBrainsMono/JetBrainsMono-ThinItalic.woff2") format("woff");
-  font-weight: 100;
-  font-style: italic;
+    font-family: "JetBrains Mono";
+    src: url("/fonts/JetBrainsMono/JetBrainsMono-ThinItalic.woff2") format("woff");
+    font-weight: 100;
+    font-style: italic;
 }
 
 
@@ -829,119 +891,119 @@ a.badge[data-format*=html] {
 /* Public Sans              */
 /****************************/
 @font-face {
-  font-family: "Public Sans";
-  src: url("/fonts/PublicSans/PublicSans-Bold.woff2") format("woff2");
-  font-weight: 700;
-  font-style: normal;
+    font-family: "Public Sans";
+    src: url("/fonts/PublicSans/PublicSans-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
 
 }
 
 @font-face {
-  font-family: "Public Sans";
-  src: url("/fonts/PublicSans/PublicSans-BoldItalic.woff2") format("woff");
-  font-weight: 700;
-  font-style: italic;
+    font-family: "Public Sans";
+    src: url("/fonts/PublicSans/PublicSans-BoldItalic.woff2") format("woff");
+    font-weight: 700;
+    font-style: italic;
 
 }
 
 @font-face {
-  font-family: "Public Sans";
-  src: url("/fonts/PublicSans/PublicSans-ExtraBold.woff2") format("woff");
-  font-weight: 800;
-  font-style: normal;
+    font-family: "Public Sans";
+    src: url("/fonts/PublicSans/PublicSans-ExtraBold.woff2") format("woff");
+    font-weight: 800;
+    font-style: normal;
 
 }
 
 @font-face {
-  font-family: "Public Sans";
-  src: url("/fonts/PublicSans/PublicSans-ExtraBoldItalic.woff2") format("woff");
-  font-weight: 800;
-  font-style: italic;
+    font-family: "Public Sans";
+    src: url("/fonts/PublicSans/PublicSans-ExtraBoldItalic.woff2") format("woff");
+    font-weight: 800;
+    font-style: italic;
 
 }
 
 @font-face {
-  font-family: "Public Sans";
-  src: url("/fonts/PublicSans/PublicSans-ExtraLight.woff2") format("woff");
-  font-weight: 200;
-  font-style: normal;
+    font-family: "Public Sans";
+    src: url("/fonts/PublicSans/PublicSans-ExtraLight.woff2") format("woff");
+    font-weight: 200;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: "Public Sans";
-  src: url("/fonts/PublicSans/PublicSans-ExtraLightItalic.woff2") format("woff");
-  font-weight: 200;
-  font-style: italic;
+    font-family: "Public Sans";
+    src: url("/fonts/PublicSans/PublicSans-ExtraLightItalic.woff2") format("woff");
+    font-weight: 200;
+    font-style: italic;
 }
 
 @font-face {
-  font-family: "Public Sans";
-  src: url("/fonts/PublicSans/PublicSans-Italic.woff2") format("woff");
-  font-weight: 400;
-  font-style: italic;
+    font-family: "Public Sans";
+    src: url("/fonts/PublicSans/PublicSans-Italic.woff2") format("woff");
+    font-weight: 400;
+    font-style: italic;
 }
 
 @font-face {
-  font-family: "Public Sans";
-  src: url("/fonts/PublicSans/PublicSans-Light.woff2") format("woff");
-  font-weight: 300;
-  font-style: normal;
+    font-family: "Public Sans";
+    src: url("/fonts/PublicSans/PublicSans-Light.woff2") format("woff");
+    font-weight: 300;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: "Public Sans";
-  src: url("/fonts/PublicSans/PublicSans-LightItalic.woff2") format("woff");
-  font-weight: 300;
-  font-style: italic;
+    font-family: "Public Sans";
+    src: url("/fonts/PublicSans/PublicSans-LightItalic.woff2") format("woff");
+    font-weight: 300;
+    font-style: italic;
 }
 
 @font-face {
-  font-family: "Public Sans";
-  src: url("/fonts/PublicSans/PublicSans-Medium.woff2") format("woff");
-  font-weight: 500;
-  font-style: normal;
+    font-family: "Public Sans";
+    src: url("/fonts/PublicSans/PublicSans-Medium.woff2") format("woff");
+    font-weight: 500;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: "Public Sans";
-  src: url("/fonts/PublicSans/PublicSans-MediumItalic.woff2") format("woff");
-  font-weight: 500;
-  font-style: italic;
+    font-family: "Public Sans";
+    src: url("/fonts/PublicSans/PublicSans-MediumItalic.woff2") format("woff");
+    font-weight: 500;
+    font-style: italic;
 }
 
 @font-face {
-  font-family: "Public Sans";
-  src: url("/fonts/PublicSans/PublicSans-Regular.woff2") format("woff");
-  font-weight: 400;
-  font-style: normal;
+    font-family: "Public Sans";
+    src: url("/fonts/PublicSans/PublicSans-Regular.woff2") format("woff");
+    font-weight: 400;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: "Public Sans";
-  src: url("/fonts/PublicSans/PublicSans-SemiBold.woff2") format("woff");
-  font-weight: 600;
-  font-style: normal;
+    font-family: "Public Sans";
+    src: url("/fonts/PublicSans/PublicSans-SemiBold.woff2") format("woff");
+    font-weight: 600;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: "Public Sans";
-  src: url("/fonts/PublicSans/PublicSans-SemiBoldItalic.woff2") format("woff");
-  font-weight: 600;
-  font-style: italic;
+    font-family: "Public Sans";
+    src: url("/fonts/PublicSans/PublicSans-SemiBoldItalic.woff2") format("woff");
+    font-weight: 600;
+    font-style: italic;
 }
 
 @font-face {
-  font-family: "Public Sans";
-  src: url("/fonts/PublicSans/PublicSans-Thin.woff2") format("woff");
-  font-weight: 100;
-  font-style: normal;
+    font-family: "Public Sans";
+    src: url("/fonts/PublicSans/PublicSans-Thin.woff2") format("woff");
+    font-weight: 100;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: "Public Sans";
-  src: url("/fonts/PublicSans/PublicSans-ThinItalic.woff2") format("woff");
-  font-weight: 100;
-  font-style: italic;
+    font-family: "Public Sans";
+    src: url("/fonts/PublicSans/PublicSans-ThinItalic.woff2") format("woff");
+    font-weight: 100;
+    font-style: italic;
 }
 
 /* end fonts */

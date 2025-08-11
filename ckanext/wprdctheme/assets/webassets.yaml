@@ -2,7 +2,7 @@
    filter: rjsmin
    output: ckanext-wprdctheme/%(version)s-wprdc_theme_popover.js
    contents:
-     - js/wprdc_theme_popover.js
+     - js/modules/wprdc_theme_popover.js
    extra:
      preload:
        - base/main
