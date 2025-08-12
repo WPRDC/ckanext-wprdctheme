@@ -361,7 +361,7 @@ a {
     @apply hover:bg-opacity-0;
 }
 
-header.masthead  .header-image > .logo > img {
+header.masthead .header-image > .logo > img {
     @apply max-h-full max-w-full w-64 md:w-80 lg:w-96;
 
 }
@@ -373,7 +373,7 @@ header.masthead > .container {
 }
 
 header.masthead > .container > nav.navbar.navbar-expand-lg {
-    @apply  w-full max-w-screen-xl mx-auto;
+    @apply w-full max-w-screen-xl mx-auto;
     @apply items-start lg:items-center flex-wrap lg:flex-nowrap justify-start lg:justify-items-stretch;
 }
 
@@ -574,10 +574,16 @@ h1.page-heading,
     @apply mt-5 mb-3;
 }
 
+
+.primary h2 {
+    @apply text-2xl;
+    @apply mt-5 mb-3;
+}
+
 .additional-info {
 }
 
-.additional-info h3 {
+h3 {
     @apply text-xl;
     @apply mt-5 mb-3;
 }
@@ -758,10 +764,27 @@ a.badge[data-format*=html] {
     text-decoration: none;
 }
 
-.table {
+.table:not(.dataTable) {
     @apply overflow-x-auto max-w-full;
 }
 
+
+.table:not(.dataTable) tbody {
+    @apply border-t-white;
+}
+
+
+.table:not(.dataTable) thead tr {
+    @apply border-b-white border-b;
+}
+
+.table:not(.dataTable) > :not(:first-child) {
+    @apply border-white;
+}
+
+.table:not(.dataTable) thead th {
+    @apply bg-stone-800 text-white;
+}
 
 /* end badges */
 /**********************************************************************************************************/

@@ -435,7 +435,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   display: none;
 }
 
-.border-l-0, [id=terms-dialog], .text-box, .primary, .search-form, .badge, .dataset-item, .site-search, .btn, .search-input-group, button, .masthead, .site-title {
+.border-l-0, [id=terms-dialog], .text-box, .primary, .search-form, .badge, .dataset-item, .site-search, .btn, .search-input-group, button, .masthead, .site-title, tr {
   --tw-border-opacity: 1;
   border-color: rgb(229 231 235 / var(--tw-border-opacity));
 }
@@ -1084,20 +1084,20 @@ a:hover {
   --tw-bg-opacity: 0;
 }
 
-header.masthead  .header-image > .logo > img {
+header.masthead .header-image > .logo > img {
   max-height: 100%;
   width: 16rem;
   max-width: 100%;
 }
 
 @media (min-width: 768px) {
-  header.masthead  .header-image > .logo > img {
+  header.masthead .header-image > .logo > img {
     width: 20rem;
   }
 }
 
 @media (min-width: 992px) {
-  header.masthead  .header-image > .logo > img {
+  header.masthead .header-image > .logo > img {
     width: 24rem;
   }
 }
@@ -1493,10 +1493,17 @@ h1.page-heading, .row .primary .module div.module-content h1 {
   margin-bottom: 0.75rem;
 }
 
+.primary h2 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin-top: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
 .additional-info {
 }
 
-.additional-info h3 {
+h3 {
   font-size: 1.25rem;
   line-height: 1.75rem;
   margin-top: 1.25rem;
@@ -1767,9 +1774,32 @@ a.badge[data-format=html], a.badge[data-format*=html] {
   text-decoration: none;
 }
 
-.table {
+.table:not(.dataTable) {
   max-width: 100%;
   overflow-x: auto;
+}
+
+.table:not(.dataTable) tbody {
+  --tw-border-opacity: 1;
+  border-top-color: rgb(255 255 255 / var(--tw-border-opacity));
+}
+
+.table:not(.dataTable) thead tr {
+  border-bottom-width: 1px;
+  --tw-border-opacity: 1;
+  border-bottom-color: rgb(255 255 255 / var(--tw-border-opacity));
+}
+
+.table:not(.dataTable) > :not(:first-child) {
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity));
+}
+
+.table:not(.dataTable) thead th {
+  --tw-bg-opacity: 1;
+  background-color: rgb(41 37 36 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 /* end badges */
