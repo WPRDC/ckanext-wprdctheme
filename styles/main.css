@@ -2,12 +2,13 @@
  For now, put all styles in this file.  If it gets unwieldy we can break it in to modules.
 
  To build the styles into the theme from the base directory of ckanext-wprdctheme:
- tailwindcss - i ./styles/main.css -o ./ckanext/wprdctheme/assets/css/wprdc_theme.css
+ tailwindcss -i ./styles/main.css -o ./ckanext/wprdctheme/assets/css/wprdc_theme.css
 
  When developing:
- tailwindcss -i ./styles/main.css -o ./ckanext/wprdctheme/assets/css/wprdc_theme.css --watch
+
 */
 /* GLOBAL STYLES */
+@reference "tailwindcss";
 
 @tailwind base;
 @tailwind components;
@@ -108,7 +109,8 @@ a {
 }
 
 .row.wrapper > .primary {
-    @apply p-0 border-l-black border-l;
+    @apply pl-px md:p-0;
+    @apply border-l-0 md:border-l-black md:border-l;
 }
 
 .row.wrapper > .primary .module-content {
@@ -169,7 +171,6 @@ a {
 
 .media-grid .media-item .media-description {
     @apply pb-2 font-sans;
-
 }
 
 .media-grid .media-item a.media-view {
@@ -289,6 +290,7 @@ a {
     @apply shadow-none text-2xl h-full;
     @apply border-0 border-l-2;
     @apply hover:bg-primary !important;
+    @apply z-0;
 }
 
 .control-order-by select {
@@ -689,6 +691,24 @@ h3 {
     @apply font-mono text-sm lg:text-lg font-black;
 }
 
+#organization-info .image {
+    @apply w-full;
+    @apply flex justify-center items-center;
+}
+
+#organization-info .image a{
+    @apply w-40 md:w-full;
+}
+
+.media-item p.media-description {
+    @apply break-normal hyphens-auto;
+}
+
+.module-content .description {
+    @apply break-normal;
+}
+
+
 /**********************************************************************************************************/
 /* Badges */
 .badge.badge-info,
@@ -785,6 +805,7 @@ a.badge[data-format*=html] {
 .table:not(.dataTable) thead th {
     @apply bg-stone-800 text-white;
 }
+
 
 /* end badges */
 /**********************************************************************************************************/
