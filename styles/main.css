@@ -718,15 +718,6 @@ div.actions ul.justify-content-end {
     @apply break-normal;
 }
 
-/*div.resourceinfo {*/
-/*    @apply block md:inline;*/
-/*}*/
-
-/*div.sortinfo {*/
-/*    @apply block md:inline;*/
-/*    @apply pb-6 md:pb-0;*/
-/*}*/
-
 div.dataTables_wrapper {
     @apply flex flex-col md:block;
 }
@@ -803,27 +794,6 @@ div.dataTables_wrapper div.dataTables_paginate {
 }
 
 
-/*div.dataTables_length {*/
-/*    !*@apply flex md:inline;*!*/
-/*    @apply order-2 md:order-1;*/
-/*}*/
-
-
-
-/*div.dt-buttons.btn-group.flex-wrap {*/
-/*    @apply flex-initial md:inline-flex;*/
-/*    @apply order-first md:order-none !important;*/
-/*}*/
-
-/*div.dataTables_info {*/
-/*    @apply block;*/
-/*    @apply pb-6 md:pb-0;*/
-/*    @apply text-left !important;*/
-/*}*/
-
-/*div.dataTables_filter {*/
-/*    @apply block md:inline-flex;*/
-/*}*/
 /**********************************************************************************************************/
 /* Badges */
 .badge.badge-info,
