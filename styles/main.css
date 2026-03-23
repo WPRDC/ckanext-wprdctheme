@@ -640,13 +640,23 @@ h3 {
 }
 
 .module-resource .actions {
-    @apply top-0 right-0;
+    @apply inset-0 md:top-0 right-0;
+    @apply w-full md:w-auto;
+    @apply pb-2 md:pb-0;
+}
+
+div.actions ul.justify-content-end {
+    @apply justify-stretch md:justify-end !important;
+    @apply grow md:grow-0;
 }
 
 .module-resource .module-content {
     @apply p-5 m-0;
 }
 
+.module-content h1.page-heading {
+    @apply mb-[5px] md:mb-[20px];
+}
 
 /* embedded content */
 .notes.prose {
@@ -707,6 +717,82 @@ h3 {
 .module-content .description {
     @apply break-normal;
 }
+
+div.dataTables_wrapper {
+    @apply flex flex-col md:block;
+}
+
+div.dataTables_wrapper div.dt-buttons {
+        @apply order-1 md:order-none;
+        @apply pb-6 md:pb-0;
+    }
+
+div.dataTables_wrapper div.dataTables_length {
+    @apply order-3 md:order-none;
+    @apply flex md:inline;
+}
+
+div.dataTables_wrapper div.dataTables_length label {
+    @apply after:content-none;
+}
+
+div.dataTables_wrapper div.dataTables_info {
+    @apply order-4 md:order-none;
+    @apply text-left !important;
+}
+
+div.dataTables_wrapper div.dataTables_filter {
+    @apply order-2 md:order-none;
+    @apply pb-3 md:pb-0;
+    @apply pt-1 md:pt-0;
+    @apply text-right;
+    @apply justify-end;
+    @apply sm:inline-block md:inline-flex;
+}
+
+div.dataTables_wrapper div.dataTables_filter label {
+    @apply after:content-none;
+    @apply sm:before:content-none;
+    @apply w-full;
+    @apply -ml-1 md:ml-0;
+}
+
+div.dataTables_wrapper div.dataTables_filter input {
+    @apply w-full md:w-auto;
+    @apply flex md:inline-block;
+}
+
+div.dataTables_wrapper div.dataTables_filter i#filterinfoicon {
+    @apply sm:-z-50 md:z-auto;
+    @apply before:content-none;
+}
+
+div.dataTables_wrapper div.dataTables_filter input.form-control.form-control-sm {
+    @apply w-full;
+}
+
+div.dataTables_wrapper div.dataTables_processing {
+    @apply order-5 md:order-none;
+}
+
+div.dataTables_wrapper div.dataTables_scroll {
+    @apply order-6 md:order-none;
+}
+
+div.dataTables_wrapper div.resourceinfo {
+    @apply order-7 md:order-none;
+    @apply pt-2 md:pt-0;
+}
+
+div.dataTables_wrapper div.sortinfo {
+    @apply order-8 md:order-none;
+    @apply pb-6 md:pb-0;
+}
+
+div.dataTables_wrapper div.dataTables_paginate {
+    @apply order-9 md:order-none;
+}
+
 
 
 /**********************************************************************************************************/
@@ -780,7 +866,7 @@ a.badge[data-format*=html] {
 
 .badge-default[href]:hover,
 .badge-default[href]:focus {
-    @apply bg-primary text-primary;
+    @apply bg-primary text-black;
     text-decoration: none;
 }
 
