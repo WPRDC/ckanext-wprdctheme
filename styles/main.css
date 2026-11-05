@@ -136,7 +136,9 @@
 }
 
 #terms-dialog {
-  @apply fixed top-0 right-0 bottom-0 left-0;
+  /* v4's preflight zeroes margin/padding on every element, which removes the
+     browser's `margin: auto` that centers a modal <dialog>. Restore both. */
+  @apply fixed inset-0 m-auto p-4;
   @apply max-h-3/4 w-full max-w-4xl;
   @apply border-2 border-black shadow-xl;
 }
@@ -471,6 +473,9 @@ a {
 
 header.masthead .header-image > .logo > img {
   @apply max-h-full w-64 max-w-full md:w-80 lg:w-96;
+  /* CKAN core sets `.masthead .navbar .logo img { min-height: 55px }`, which
+     stretches the wide logo vertically. Let height follow width instead. */
+  @apply h-auto min-h-0 object-contain object-left;
 }
 
 header.masthead > .container {
