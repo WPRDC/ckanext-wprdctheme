@@ -2,226 +2,339 @@
  For now, put all styles in this file.  If it gets unwieldy we can break it in to modules.
 
  To build the styles into the theme from the base directory of ckanext-wprdctheme:
- tailwindcss -i ./styles/main.css -o ./ckanext/wprdctheme/assets/css/wprdc_theme.css
+ npm run build
 
  When developing:
-
+ npm run watch
 */
 /* GLOBAL STYLES */
-@reference "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss" source(none);
 
+/* Only scan the extension's templates and scripts for class names. */
+@source "../ckanext/wprdctheme/**/*.{html,js}";
+
+@theme {
+  --breakpoint-*: initial;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-2xl: 1300px;
+
+  --font-sans: Public Sans, Arial, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-primary: #fcec52;
+
+  --color-secondary-50: #ecfeff;
+  --color-secondary-100: #cffafe;
+  --color-secondary-200: #a5f3fc;
+  --color-secondary-300: #67e8f9;
+  --color-secondary-400: #22d3ee;
+  --color-secondary-500: #06b6d4;
+  --color-secondary-600: #0891b2;
+  --color-secondary-700: #0e7490;
+  --color-secondary-800: #155e75;
+  --color-secondary-900: #164e63;
+
+  --color-background-50: #ecfeff;
+  --color-background-100: #cffafe;
+  --color-background-200: #a5f3fc;
+  --color-background-300: #67e8f9;
+  --color-background-400: #22d3ee;
+  --color-background-500: #06b6d4;
+  --color-background-600: #0891b2;
+  --color-background-700: #0e7490;
+  --color-background-800: #155e75;
+  --color-background-900: #164e63;
+
+  --color-focused-50: #ecfeff;
+  --color-focused-100: #cffafe;
+  --color-focused-200: #a5f3fc;
+  --color-focused-300: #67e8f9;
+  --color-focused-400: #22d3ee;
+  --color-focused-500: #06b6d4;
+  --color-focused-600: #0891b2;
+  --color-focused-700: #0e7490;
+  --color-focused-800: #155e75;
+  --color-focused-900: #164e63;
+
+  --color-error-50: #fef2f2;
+  --color-error-100: #fee2e2;
+  --color-error-200: #fecaca;
+  --color-error-300: #fca5a5;
+  --color-error-400: #f87171;
+  --color-error-500: #ef4444;
+  --color-error-600: #dc2626;
+  --color-error-700: #b91c1c;
+  --color-error-800: #991b1b;
+  --color-error-900: #7f1d1d;
+
+  --color-warning-50: #fff7ed;
+  --color-warning-100: #ffedd5;
+  --color-warning-200: #fed7aa;
+  --color-warning-300: #fdba74;
+  --color-warning-400: #fb923c;
+  --color-warning-500: #f97316;
+  --color-warning-600: #ea580c;
+  --color-warning-700: #c2410c;
+  --color-warning-800: #9a3412;
+  --color-warning-900: #7c2d12;
+
+  --color-text: #181818;
+  --color-textSecondary: #52525b;
+
+  --color-wprdc-50: #fefde8;
+  --color-wprdc-100: #fefdc3;
+  --color-wprdc-200: #fdf68b;
+  --color-wprdc-300: #fcec52;
+  --color-wprdc-400: #f9da16;
+  --color-wprdc-500: #e9c109;
+  --color-wprdc-600: #c99705;
+  --color-wprdc-700: #a06c08;
+  --color-wprdc-800: #84550f;
+  --color-wprdc-900: #704513;
+  --color-wprdc-950: #422406;
+
+  --max-height-1\/4: 25%;
+  --max-height-1\/2: 50%;
+  --max-height-3\/4: 75%;
+
+  --shadow-sm: 2px 2px 0 rgba(0, 0, 0, 0.5);
+  --shadow: 3px 3px 0 rgba(0, 0, 0, 0.5);
+  --shadow-md: 4px 4px 0 rgba(0, 0, 0, 0.5);
+  --shadow-lg: 5px 5px 0 rgba(0, 0, 0, 0.5);
+  --shadow-xl: 6px 6px 0 rgba(0, 0, 0, 0.5);
+  --shadow-2xl: 8px 8px 0 rgba(0, 0, 0, 0.5);
+  --shadow-sm-reverse: -2px -2px 0 rgba(0, 0, 0, 0.5);
+  --shadow-reverse: -3px -3px 0 rgba(0, 0, 0, 0.5);
+  --shadow-md-reverse: -4px -4px 0 rgba(0, 0, 0, 0.5);
+  --shadow-lg-reverse: -5px -5px 0 rgba(0, 0, 0, 0.5);
+  --shadow-xl-reverse: -6px -6px 0 rgba(0, 0, 0, 0.5);
+  --shadow-2xl-reverse: -8px -8px 0 rgba(0, 0, 0, 0.5);
+  --shadow-inner: 2px 2px 0 #cbd5e1 inset;
+  --shadow-none: none;
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
 
 #terms-dialog {
-    @apply fixed top-0 right-0 left-0 bottom-0;
-    @apply max-w-4xl w-full max-h-3/4;
-    @apply border-2 border-black shadow-xl;
+  @apply fixed top-0 right-0 bottom-0 left-0;
+  @apply max-h-3/4 w-full max-w-4xl;
+  @apply border-2 border-black shadow-xl;
 }
 
 #terms-dialog::backdrop {
-    @apply backdrop-blur;
+  @apply backdrop-blur-sm;
 }
 
 #terms-dialog h1 {
-    @apply text-2xl font-bold;
+  @apply text-2xl font-bold;
 }
 
 #terms-dialog h2 {
-    @apply text-textSecondary font-bold;
+  @apply font-bold text-textSecondary;
 }
 
 #terms-dialog .subtitle {
-    @apply text-lg font-medium italic;
-    @apply mb-4;
+  @apply text-lg font-medium italic;
+  @apply mb-4;
 }
 
 #terms-dialog button {
-    @apply mt-2;
+  @apply mt-2;
 }
 
 #terms-dialog .agree-cta {
-    @apply font-semibold;
+  @apply font-semibold;
 }
 
 #terms-dialog .text-box {
-    @apply max-h-72;
-    @apply overflow-auto;
-    @apply font-sans;
-    @apply border p-2;
-    @apply mb-3;
+  @apply max-h-72;
+  @apply overflow-auto;
+  @apply font-sans;
+  @apply border p-2;
+  @apply mb-3;
 }
 
 #terms-dialog ol {
-    @apply ml-3;
-    @apply list-decimal;
+  @apply ml-3;
+  @apply list-decimal;
 }
 
 .text-box li {
-    @apply ml-3;
+  @apply ml-3;
 }
 
 .text-box p,
 .text-box li {
-    @apply mt-2;
+  @apply mt-2;
 }
-
 
 /*****************/
 /* Theme styles  */
 /*****************/
 #flDebug .flDebugPanelContent {
-    overflow-y: auto !important;
+  overflow-y: auto !important;
 }
 
 body {
-    @apply font-mono;
+  @apply font-mono;
 }
 
 h3 {
-    @apply font-mono;
+  @apply font-mono;
 }
 
 a {
-    @apply text-text hover:text-text;
-    @apply hover:bg-primary;
+  @apply text-text hover:text-text;
+  @apply hover:bg-primary;
 }
 
 #content {
-    @apply max-w-6xl mx-auto;
+  @apply mx-auto max-w-6xl;
 }
 
 .row.wrapper {
-    @apply rounded-none;
-    @apply border-black;
-    @apply shadow-xl;
+  @apply rounded-none;
+  @apply border-black;
+  @apply shadow-xl;
 }
 
-
 .main .container {
-    @apply w-full max-w-full;
+  @apply w-full max-w-full;
 }
 
 .module > .page-header {
-    @apply bg-white;
+  @apply bg-white;
 }
 
 .row.wrapper > .primary {
-    @apply pl-px md:p-0;
-    @apply border-l-0 md:border-l-black md:border-l;
+  @apply pl-px md:p-0;
+  @apply border-l-0 md:border-l md:border-l-black;
 }
 
 .row.wrapper > .primary .module-content {
-    @apply p-0;
+  @apply p-0;
 }
 
 .search-form {
-    @apply mb-0;
-    @apply border-b border-b-black border-solid;
+  @apply mb-0;
+  @apply border-b border-solid border-b-black;
 }
 
 .badge {
-    @apply rounded-none border-black border;
-    @apply font-mono;
+  @apply rounded-none border border-black;
+  @apply font-mono;
 }
 
 /* END GLOBAL STYLES */
 
 /* scheming/package/resource_read.thml */
 .row.wrapper .resource-read-primary.primary {
-    @apply border-0;
+  @apply border-0;
 }
 
 /* snippets/package_item.html */
 .w_dataset-heading-section {
-    @apply flex flex-col-reverse;
+  @apply flex flex-col-reverse;
 }
 
-
 .w_dataset-heading-section h2 {
-    @apply mt-1;
-    @apply text-2xl font-mono font-bold;
+  @apply mt-1;
+  @apply font-mono text-2xl font-bold;
 }
 
 .w_dataset-heading-section h2 a {
-    @apply inline;
-    @apply hover:bg-primary;
-    @apply underline underline-offset-2 decoration-2;
-
+  @apply inline;
+  @apply hover:bg-primary;
+  @apply underline decoration-2 underline-offset-2;
 }
 
 .row .primary .module div.module-content h2.dataset-heading {
-    @apply py-1 m-0;
+  @apply m-0 py-1;
 }
-
 
 /* grid items */
 .media-grid {
-    @apply -mx-5;
-    @apply p-5;
-    @apply bg-none;
+  @apply -mx-5;
+  @apply p-5;
+  @apply bg-none;
 }
 
 .media-grid .media-item {
-    @apply ml-0 mr-5 mb-5;
-    @apply rounded-none border-black;
+  @apply mr-5 mb-5 ml-0;
+  @apply rounded-none border-black;
 }
 
 .media-grid .media-item .media-description {
-    @apply pb-2 font-sans;
+  @apply pb-2 font-sans;
 }
 
 .media-grid .media-item a.media-view {
-    @apply hover:bg-opacity-0;
-    @apply shadow-lg hover:shadow-2xl;
-    @apply rounded-none border-black;
+  @apply shadow-lg hover:shadow-2xl;
+  @apply rounded-none border-black;
 }
 
 .row .primary .media-grid .media-item > h2.media-heading {
-    @apply text-base font-bold;
+  @apply text-base font-bold;
 }
 
-
 .w_dataset-heading-org {
-    @apply font-mono text-xs;
-    @apply font-semibold text-textSecondary;
+  @apply font-mono text-xs;
+  @apply font-semibold text-textSecondary;
 }
 
 .dataset-item {
-    @apply relative;
-    @apply border-b border-black ;
-    @apply py-5 mb-0;
+  @apply relative;
+  @apply border-b border-black;
+  @apply mb-0 py-5;
 }
 
 .dataset-item:last-of-type {
-    @apply py-5 !important;
+  @apply py-5!;
 }
 
 .dataset-heading {
-    @apply text-xl font-bold leading-none;
+  @apply text-xl leading-none font-bold;
 }
 
 .w_dataset-item-metadata-list dl {
-    @apply inline font-mono;
-    @apply font-mono text-xs;
+  @apply inline font-mono;
+  @apply font-mono text-xs;
 }
 
 .w_dataset-item-metadata-list dt {
-    @apply font-bold inline-block;
-    @apply mr-2;
-    @apply font-mono text-xs;
+  @apply inline-block font-bold;
+  @apply mr-2;
+  @apply font-mono text-xs;
 }
 
 .w_dataset-item-metadata-list dd {
-    @apply inline-block;
-    @apply font-mono text-xs;
+  @apply inline-block;
+  @apply font-mono text-xs;
 }
 
 .w_dataset-item-notes {
-    @apply my-1;
-    @apply text-sm font-sans;
+  @apply my-1;
+  @apply font-sans text-sm;
 }
 
 /* snippets/facet_list.html */
@@ -229,378 +342,363 @@ a {
 }
 
 .w_dataset-resources {
-    @apply m-0;
+  @apply m-0;
 }
 
 .w_dataset-item-footer {
-    @apply pt-2;
-    @apply flex items-center justify-between;
+  @apply pt-2;
+  @apply flex items-center justify-between;
 }
 
 .secondary li.nav-item a {
-    @apply flex items-center;
-    @apply hover:bg-primary hover:text-text;
+  @apply flex items-center;
+  @apply hover:bg-primary hover:text-text;
 }
 
 .secondary li.nav-item a .item-label {
-    @apply mr-1;
-    @apply truncate;
+  @apply mr-1;
+  @apply truncate;
 }
 
 .secondary li.nav-item.active a::before {
-    @apply content-none;
+  @apply content-none;
 }
 
 .secondary li.nav-item.active a {
-    @apply bg-black text-white font-bold;
-    @apply hover:bg-black hover:text-white;
+  @apply bg-black font-bold text-white;
+  @apply hover:bg-black hover:text-white;
 }
 
-
 .masthead form.site-search {
-    @apply hover:ring-2 hover:ring-primary;
-    @apply border-black border-2;
+  @apply hover:ring-2 hover:ring-primary;
+  @apply border-2 border-black;
 }
 
 .masthead form.site-search > input,
 #field-sitewide-search {
-    @apply rounded-none;
-    @apply mr-0 !important;
+  @apply rounded-none;
+  @apply mr-0!;
 }
 
 .masthead form.site-search > button.btn {
-    @apply m-0;
-    @apply rounded-none;
-    @apply shadow-none;
-    @apply border-0 border-l-2;
+  @apply m-0;
+  @apply rounded-none;
+  @apply shadow-none;
+  @apply border-0 border-l-2;
 }
 
 /* snippets/search_form.html */
 .search-input-group {
-    @apply hover:ring-2 hover:ring-primary;
-    @apply border-black border-2;
+  @apply hover:ring-2 hover:ring-primary;
+  @apply border-2 border-black;
 }
 
 .search-input-group > input {
-    @apply rounded-none;
+  @apply rounded-none;
 }
 
 .search-input-group .input-group-btn > button {
-    @apply rounded-none;
-    @apply shadow-none text-2xl h-full;
-    @apply border-0 border-l-2;
-    @apply hover:bg-primary !important;
-    @apply z-0;
+  @apply rounded-none;
+  @apply h-full text-2xl shadow-none;
+  @apply border-0 border-l-2;
+  @apply hover:bg-primary!;
+  @apply z-0;
 }
 
 .control-order-by select {
-    @apply rounded-none;
+  @apply rounded-none;
 }
 
 .form-control:focus {
-    @apply border-inherit;
-    @apply ring-2 ring-secondary-500;
-    @apply shadow-none;
+  @apply border-inherit;
+  @apply ring-2 ring-secondary-500;
+  @apply shadow-none;
 }
 
 .search-form h1 {
-    @apply font-mono;
+  @apply font-mono;
 }
 
 /* snippets/facet_list.html */
 .secondary h2.module-heading {
-    @apply text-sm font-bold font-mono;
+  @apply font-mono text-sm font-bold;
 }
 
 .w_facet-list .item-label {
-    @apply text-xs;
+  @apply text-xs;
 }
 
 .w_facet-list .nav-item a {
-    @apply hover:bg-primary;
+  @apply hover:bg-primary;
 }
 
 /* header.html */
 .account-masthead {
-    @apply bg-black text-white;
+  @apply bg-black text-white;
 }
 
 .account-masthead .list-unstyled img {
-    @apply inline-block;
+  @apply inline-block;
 }
 
 .masthead {
-    @apply bg-white;
-    @apply text-black;
-    @apply border-b-black border-b-2;
+  @apply bg-white;
+  @apply text-black;
+  @apply border-b-2 border-b-black;
 }
 
 .masthead .main-navbar ul li {
-    @apply rounded-none;
-
+  @apply rounded-none;
 }
 
 .masthead .main-navbar ul li a {
-    @apply text-black font-bold;
-    @apply font-mono underline;
-    @apply rounded-none;
-    /*@apply px-1.5 py-1 mr-4;*/
+  @apply font-bold text-black;
+  @apply font-mono underline;
+  @apply rounded-none;
+  /*@apply px-1.5 py-1 mr-4;*/
 }
 
 .masthead .main-navbar ul li:hover a,
 .masthead .main-navbar ul li:focus a {
-    @apply text-black  font-extrabold bg-primary;
-    @apply rounded-none decoration-2;
-    @apply bg-opacity-0;
+  @apply bg-primary/0 font-extrabold text-black;
+  @apply rounded-none decoration-2;
 }
 
 .masthead .main-navbar ul li.active a {
-    @apply bg-white bg-opacity-0 no-underline;
-    @apply font-bold;
-}
-
-.header-image > .logo {
-    @apply hover:bg-opacity-0;
+  @apply bg-white/0 no-underline;
+  @apply font-bold;
 }
 
 header.masthead .header-image > .logo > img {
-    @apply max-h-full max-w-full w-64 md:w-80 lg:w-96;
-
+  @apply max-h-full w-64 max-w-full md:w-80 lg:w-96;
 }
 
 header.masthead > .container {
-    @apply py-0;
-    @apply mx-0 lg:mx-auto;
-    @apply max-w-full;
+  @apply py-0;
+  @apply mx-0 lg:mx-auto;
+  @apply max-w-full;
 }
 
 header.masthead > .container > nav.navbar.navbar-expand-lg {
-    @apply w-full max-w-screen-xl mx-auto;
-    @apply items-start lg:items-center flex-wrap lg:flex-nowrap justify-start lg:justify-items-stretch;
+  @apply mx-auto w-full max-w-(--breakpoint-xl);
+  @apply flex-wrap items-start justify-start lg:flex-nowrap lg:items-center lg:justify-items-stretch;
 }
 
-
 header.masthead .navbar-nav {
-    @apply mt-2 lg:mt-0;
-    @apply lg:text-lg;
+  @apply mt-2 lg:mt-0;
+  @apply lg:text-lg;
 }
 
 header.masthead > .container > .nav.navbar > .header-image.navbar-left {
-    @apply pr-4;
+  @apply pr-4;
 }
 
 header.masthead > .container > nav.navbar.navbar-expand-lg .navbar-collapse {
 }
 
 nav.navbar.navbar-expand-lg .navbar-collapse {
-    display: none !important;
-
+  display: none !important;
 }
 
 nav.navbar.navbar-expand-lg .navbar-collapse.show {
-    display: block !important;
+  display: block !important;
 }
 
 @media (min-width: 992px) {
-    nav.navbar.navbar-expand-lg .navbar-collapse {
-        display: flex !important;
-    }
+  nav.navbar.navbar-expand-lg .navbar-collapse {
+    display: flex !important;
+  }
 
-    nav.navbar.navbar-expand-lg .navbar-collapse.show {
-        display: flex !important;
-    }
+  nav.navbar.navbar-expand-lg .navbar-collapse.show {
+    display: flex !important;
+  }
 }
 
 header.masthead .navbar-toggler {
-    @apply rounded-sm  border-none p-1 mr-2;
-    @apply flex flex-col items-center lg:hidden;
+  @apply mr-2 rounded-xs border-none p-1;
+  @apply flex flex-col items-center lg:hidden;
 }
 
 header.masthead .navbar-toggler > .icon {
-    @apply text-3xl text-black font-black;
+  @apply text-3xl font-black text-black;
 }
 
 header.masthead .navbar-toggler > .text {
-    @apply uppercase text-black font-bold text-xs;
+  @apply text-xs font-bold text-black uppercase;
 }
 
 .masthead > .container > .navbar {
-    @apply py-0;
-    @apply sm:justify-start lg:justify-between;
+  @apply py-0;
+  @apply sm:justify-start lg:justify-between;
 }
 
 .main {
-    /*@apply bg-[#f4f4f4];*/
-    background-image: none;
+  /*@apply bg-[#f4f4f4];*/
+  background-image: none;
 }
 
 .w_order-by-label {
-    @apply font-mono;
+  @apply font-mono;
 }
 
 .filter-list > .facet {
-    @apply font-mono;
+  @apply font-mono;
 }
 
 .filtered.pill {
-    @apply rounded-sm bg-slate-800;
-    @apply font-semibold font-mono text-primary;
+  @apply rounded-xs bg-slate-800;
+  @apply font-mono font-semibold text-primary;
 }
 
 .dataTables_paginate ul.pagination,
 ul.pagination {
-    @apply p-5;
-    @apply font-mono text-lg font-semibold;
+  @apply p-5;
+  @apply font-mono text-lg font-semibold;
 }
-
 
 .dataTables_paginate ul.pagination > li a,
 ul.pagination > li a {
-    @apply mr-3;
-    @apply underline;
-    @apply hover:bg-primary hover:text-text;
-    @apply text-text;
+  @apply mr-3;
+  @apply underline;
+  @apply hover:bg-primary hover:text-text;
+  @apply text-text;
 }
 
 .dataTables_paginate ul.pagination > li.active a {
-    @apply text-white bg-text;
+  @apply bg-text text-white;
 }
 
 ul.pagination > li.active a {
-    @apply no-underline;
+  @apply no-underline;
 }
 
 .dataTables_paginate ul.pagination > li.disabled a,
 ul.pagination > li.disabled a {
-    @apply no-underline text-textSecondary;
-    @apply hover:no-underline cursor-default;
-    @apply hover:bg-white hover:text-text;
+  @apply text-textSecondary no-underline;
+  @apply cursor-default hover:no-underline;
+  @apply hover:bg-white hover:text-text;
 }
 
 .w_search-results-api-msg {
-    @apply italic;
-    @apply pb-2;
+  @apply italic;
+  @apply pb-2;
 }
 
 .site-footer {
-    @apply bg-text text-white;
+  @apply bg-text text-white;
 }
 
 .site-footer a {
-    @apply font-semibold text-white hover:text-text;
+  @apply font-semibold text-white hover:text-text;
 }
 
 #partner-links {
-    @apply mb-2;
+  @apply mb-2;
 }
 
 /* nav-tabs */
 .nav.nav-tabs {
-    @apply h-full;
-    @apply p-0 m-0;
-
+  @apply h-full;
+  @apply m-0 p-0;
 }
 
 .nav.nav-tabs li {
-    @apply shadow-none;
-    @apply h-full;
+  @apply shadow-none;
+  @apply h-full;
 }
 
 .nav.nav-tabs li a {
-    @apply h-full;
-    @apply text-black font-semibold;
-    @apply rounded-none;
-    @apply hover:text-black hover:bg-primary;
+  @apply h-full;
+  @apply font-semibold text-black;
+  @apply rounded-none;
+  @apply hover:bg-primary hover:text-black;
 }
 
 .nav.nav-tabs li.active a {
-    @apply h-full;
-    @apply bg-text text-white font-bold;
-    @apply hover:text-primary;
+  @apply h-full;
+  @apply bg-text font-bold text-white;
+  @apply hover:text-primary;
 }
 
 .page_primary_action {
-    @apply text-right py-2  m-0;
+  @apply m-0 py-2 text-right;
 }
 
-
 .page-header .content_action {
-    @apply py-2 pr-5;
+  @apply py-2 pr-5;
 }
 
 .btn {
-    @apply rounded-none border-2 border-black;
-    @apply shadow hover:shadow-lg;
-    @apply active:shadow-sm focus:shadow-sm !important;
-    @apply hover:bg-primary;
-    @apply py-1 px-2;
+  @apply rounded-none border-2 border-black;
+  @apply shadow hover:shadow-lg;
+  @apply focus:shadow-sm! active:shadow-sm!;
+  @apply hover:bg-primary;
+  @apply px-2 py-1;
 }
 
 .btn.btn-light,
 .btn.btn-default {
-    @apply text-black bg-white;
-    @apply hover:bg-white !important;
-    @apply border-black !important;
+  @apply bg-white text-black;
+  @apply hover:bg-white!;
+  @apply border-black!;
 }
 
 .btn.btn-primary {
-    @apply text-white bg-slate-900;
+  @apply bg-slate-900 text-white;
 }
 
 .btn.btn-success {
-    @apply text-white bg-green-600;
+  @apply bg-green-600 text-white;
 }
 
 .btn.btn-default {
 }
 
 .btn.btn-danger {
-    @apply bg-red-600;
+  @apply bg-red-600;
 }
 
 .row .primary .module div.module-content {
-    @apply p-5;
+  @apply p-5;
 }
 
 h1.page-heading,
 .row .primary .module div.module-content h1 {
-    @apply text-3xl;
+  @apply text-3xl;
 }
 
 .row .primary .module div.module-content .search-form h1 {
-    @apply text-lg font-bold;
+  @apply text-lg font-bold;
 }
 
 .row .primary .module div.module-content h2 {
-    @apply text-2xl;
-    @apply mt-5 mb-3;
+  @apply text-2xl;
+  @apply mt-5 mb-3;
 }
 
-
 .primary h2 {
-    @apply text-2xl;
-    @apply mt-5 mb-3;
+  @apply text-2xl;
+  @apply mt-5 mb-3;
 }
 
 .additional-info {
 }
 
 h3 {
-    @apply text-xl;
-    @apply mt-5 mb-3;
+  @apply text-xl;
+  @apply mt-5 mb-3;
 }
-
 
 .primary .module h1 {
 }
 
 .notes.embedded-content {
-    @apply max-w-none;
-    @apply font-sans !important;
+  @apply max-w-none;
+  @apply font-sans!;
 }
 
 .notes.embedded-content {
-    /*@apply prose;*/
+  /*@apply prose;*/
 }
 
 .row .primary .resources {
@@ -610,291 +708,285 @@ h3 {
 }
 
 .resource-item {
-    @apply hover:bg-white;
-
+  @apply hover:bg-white;
 }
 
 .resource-item .heading {
-    @apply hover:bg-primary font-bold underline decoration-2;
-
+  @apply font-bold underline decoration-2 hover:bg-primary;
 }
 
 .toolbar .breadcrumb > li a {
-    @apply text-black;
+  @apply text-black;
 }
 
 .tag-list {
-    @apply border-none bg-white;
+  @apply border-none bg-white;
 }
 
 .tag-list .tag {
-    @apply uppercase text-sm font-semibold;
-    @apply rounded border-black;
-    @apply bg-gray-100 hover:bg-primary hover:text-black;
-    @apply shadow-none hover:shadow-sm;
-    @apply active:shadow-inner active:bg-white;
+  @apply text-sm font-semibold uppercase;
+  @apply rounded-sm border-black;
+  @apply bg-gray-100 hover:bg-primary hover:text-black;
+  @apply shadow-none hover:shadow-sm;
+  @apply active:bg-white active:shadow-inner;
 }
 
 .module-resource {
-    @apply p-0;
+  @apply p-0;
 }
 
 .module-resource .actions {
-    @apply inset-0 md:top-0 right-0;
-    @apply w-full md:w-auto;
-    @apply pb-2 md:pb-0;
+  @apply inset-0 right-0 md:top-0;
+  @apply w-full md:w-auto;
+  @apply pb-2 md:pb-0;
 }
 
 div.actions ul.justify-content-end {
-    @apply justify-stretch md:justify-end !important;
-    @apply grow md:grow-0;
+  @apply justify-stretch! md:justify-end!;
+  @apply grow md:grow-0;
 }
 
 .module-resource .module-content {
-    @apply p-5 m-0;
+  @apply m-0 p-5;
 }
 
 .module-content h1.page-heading {
-    @apply mb-[5px] md:mb-[20px];
+  @apply mb-[5px] md:mb-[20px];
 }
 
 /* embedded content */
 .notes.prose {
-    @apply py-3;
+  @apply py-3;
 }
 
 .notes.prose h3 {
-    @apply text-xl;
+  @apply text-xl;
 }
 
 .notes.prose,
 .embedded-content {
-    @apply text-base font-sans text-text;
-    @apply leading-relaxed;
+  @apply font-sans text-base text-text;
+  @apply leading-relaxed;
 }
 
 .notes.prose p,
 .embedded-content p {
-    @apply py-2;
+  @apply py-2;
 }
 
 .notes.prose a,
 .embedded-content a {
-    @apply font-semibold underline;
-    @apply hover:text-text hover:bg-primary;
+  @apply font-semibold underline;
+  @apply hover:bg-primary hover:text-text;
 }
 
 .primary .module.w_resource_module {
 }
 
 .context-info p.description {
-    @apply font-sans;
+  @apply font-sans;
 }
 
 .context-info .read-more {
-    @apply mt-1;
+  @apply mt-1;
 }
 
 .site-title {
-    @apply bg-primary w-fit rounded-sm border border-stone-400 ;
-    @apply block px-1.5 py-0 mt-0 lg:mt-2;
-    @apply font-mono text-sm lg:text-lg font-black;
+  @apply w-fit rounded-xs border border-stone-400 bg-primary;
+  @apply mt-0 block px-1.5 py-0 lg:mt-2;
+  @apply font-mono text-sm font-black lg:text-lg;
 }
 
 #organization-info .image {
-    @apply w-full;
-    @apply flex justify-center items-center;
+  @apply w-full;
+  @apply flex items-center justify-center;
 }
 
-#organization-info .image a{
-    @apply w-40 md:w-full;
+#organization-info .image a {
+  @apply w-40 md:w-full;
 }
 
 .media-item p.media-description {
-    @apply break-normal hyphens-auto;
+  @apply break-normal hyphens-auto;
 }
 
 .module-content .description {
-    @apply break-normal;
+  @apply break-normal;
 }
 
 div.dataTables_wrapper {
-    @apply flex flex-col md:block;
+  @apply flex flex-col md:block;
 }
 
 div.dataTables_wrapper div.dt-buttons {
-        @apply order-1 md:order-none;
-        @apply pb-6 md:pb-0;
-    }
+  @apply order-1 md:order-0;
+  @apply pb-6 md:pb-0;
+}
 
 div.dataTables_wrapper div.dataTables_length {
-    @apply order-3 md:order-none;
-    @apply flex md:inline;
+  @apply order-3 md:order-0;
+  @apply flex md:inline;
 }
 
 div.dataTables_wrapper div.dataTables_length label {
-    @apply after:content-none;
+  @apply after:content-none;
 }
 
 div.dataTables_wrapper div.dataTables_info {
-    @apply order-4 md:order-none;
-    @apply text-left !important;
+  @apply order-4 md:order-0;
+  @apply text-left!;
 }
 
 div.dataTables_wrapper div.dataTables_filter {
-    @apply order-2 md:order-none;
-    @apply pb-3 md:pb-0;
-    @apply pt-1 md:pt-0;
-    @apply text-right;
-    @apply justify-end;
-    @apply sm:inline-block md:inline-flex;
+  @apply order-2 md:order-0;
+  @apply pb-3 md:pb-0;
+  @apply pt-1 md:pt-0;
+  @apply text-right;
+  @apply justify-end;
+  @apply sm:inline-block md:inline-flex;
 }
 
 div.dataTables_wrapper div.dataTables_filter label {
-    @apply after:content-none;
-    @apply sm:before:content-none;
-    @apply w-full;
-    @apply -ml-1 md:ml-0;
+  @apply after:content-none;
+  @apply sm:before:content-none;
+  @apply w-full;
+  @apply -ml-1 md:ml-0;
 }
 
 div.dataTables_wrapper div.dataTables_filter input {
-    @apply w-full md:w-auto;
-    @apply flex md:inline-block;
+  @apply w-full md:w-auto;
+  @apply flex md:inline-block;
 }
 
 div.dataTables_wrapper div.dataTables_filter i#filterinfoicon {
-    @apply sm:-z-50 md:z-auto;
-    @apply before:content-none;
+  @apply sm:-z-50 md:z-auto;
+  @apply before:content-none;
 }
 
-div.dataTables_wrapper div.dataTables_filter input.form-control.form-control-sm {
-    @apply w-full;
+div.dataTables_wrapper
+  div.dataTables_filter
+  input.form-control.form-control-sm {
+  @apply w-full;
 }
 
 div.dataTables_wrapper div.dataTables_processing {
-    @apply order-5 md:order-none;
+  @apply order-5 md:order-0;
 }
 
 div.dataTables_wrapper div.dataTables_scroll {
-    @apply order-6 md:order-none;
+  @apply order-6 md:order-0;
 }
 
 div.dataTables_wrapper div.resourceinfo {
-    @apply order-7 md:order-none;
-    @apply pt-2 md:pt-0;
+  @apply order-7 md:order-0;
+  @apply pt-2 md:pt-0;
 }
 
 div.dataTables_wrapper div.sortinfo {
-    @apply order-8 md:order-none;
-    @apply pb-6 md:pb-0;
+  @apply order-8 md:order-0;
+  @apply pb-6 md:pb-0;
 }
 
 div.dataTables_wrapper div.dataTables_paginate {
-    @apply order-9 md:order-none;
+  @apply order-9 md:order-0;
 }
-
 
 /**********************************************************************************************************/
 /* Badges */
 .badge.badge-info,
 .badge.dataset-private {
-    @apply text-black text-xs bg-primary;
-    @apply rounded-sm px-1.5 py-0.5;
+  @apply bg-primary text-xs text-black;
+  @apply rounded-xs px-1.5 py-0.5;
 }
-
 
 /* Override badge colors */
-a.badge[data-format=html],
-a.badge[data-format*=html] {
-    @apply bg-sky-800;
+a.badge[data-format="html"],
+a.badge[data-format*="html"] {
+  @apply bg-sky-800;
 }
 
-.badge[data-format=json],
-.badge[data-format*=json] {
-    @apply bg-red-600;
+.badge[data-format="json"],
+.badge[data-format*="json"] {
+  @apply bg-red-600;
 }
 
-.badge[data-format=geojson],
-.badge[data-format=shp],
-.badge[data-format=kml] {
-    @apply bg-green-800;
+.badge[data-format="geojson"],
+.badge[data-format="shp"],
+.badge[data-format="kml"] {
+  @apply bg-green-800;
 }
 
-.badge[data-format=xml],
-.badge[data-format*=xml] {
-    @apply bg-red-500;
+.badge[data-format="xml"],
+.badge[data-format*="xml"] {
+  @apply bg-red-500;
 }
 
-.badge[data-format=text],
-.badge[data-format*=text] {
-    @apply bg-blue-800;
+.badge[data-format="text"],
+.badge[data-format*="text"] {
+  @apply bg-blue-800;
 }
 
-.badge[data-format=csv],
-.badge[data-format*=csv] {
-    @apply bg-amber-500;
+.badge[data-format="csv"],
+.badge[data-format*="csv"] {
+  @apply bg-amber-500;
 }
 
-.badge[data-format=xls],
-.badge[data-format*=xls] {
-    @apply bg-green-600;
+.badge[data-format="xls"],
+.badge[data-format*="xls"] {
+  @apply bg-green-600;
 }
 
-.badge[data-format=zip],
-.badge[data-format*=zip] {
-    @apply bg-slate-700;
+.badge[data-format="zip"],
+.badge[data-format*="zip"] {
+  @apply bg-slate-700;
 }
 
-.badge[data-format=api],
-.badge[data-format*=api] {
-    @apply bg-pink-700;
+.badge[data-format="api"],
+.badge[data-format*="api"] {
+  @apply bg-pink-700;
 }
 
-.badge[data-format=pdf],
-.badge[data-format*=pdf] {
-    @apply bg-red-800;
+.badge[data-format="pdf"],
+.badge[data-format*="pdf"] {
+  @apply bg-red-800;
 }
 
-.badge[data-format=rdf],
-.badge[data-format*=rdf],
-.badge[data-format*=nquad],
-.badge[data-format*=ntriples],
-.badge[data-format*=turtle] {
-    @apply bg-sky-800;
+.badge[data-format="rdf"],
+.badge[data-format*="rdf"],
+.badge[data-format*="nquad"],
+.badge[data-format*="ntriples"],
+.badge[data-format*="turtle"] {
+  @apply bg-sky-800;
 }
 
 .badge-default[href]:hover,
 .badge-default[href]:focus {
-    @apply bg-primary text-black;
-    text-decoration: none;
+  @apply bg-primary text-black;
+  text-decoration: none;
 }
 
 .table:not(.dataTable) {
-    @apply overflow-x-auto max-w-full;
+  @apply max-w-full overflow-x-auto;
 }
-
 
 .table:not(.dataTable) tbody {
-    @apply border-t-white;
+  @apply border-t-white;
 }
 
-
 .table:not(.dataTable) thead tr {
-    @apply border-b-white border-b;
+  @apply border-b border-b-white;
 }
 
 .table:not(.dataTable) > :not(:first-child) {
-    @apply border-white;
+  @apply border-white;
 }
 
 .table:not(.dataTable) thead th {
-    @apply bg-stone-800 text-white;
+  @apply bg-stone-800 text-white;
 }
-
 
 /* end badges */
 /**********************************************************************************************************/
-
 
 /**********************************************************************************************************/
 /*  Fonts
@@ -903,236 +995,235 @@ a.badge[data-format*=html] {
 /* JetBrains Mono           */
 /****************************/
 @font-face {
-    font-family: "JetBrains Mono";
-    src: url("/fonts/JetBrainsMono/JetBrainsMono-Bold.woff2") format("woff2");
-    font-weight: 700;
-    font-style: normal;
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono/JetBrainsMono-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: "JetBrains Mono";
-    src: url("/fonts/JetBrainsMono/JetBrainsMono-BoldItalic.woff2") format("woff");
-    font-weight: 700;
-    font-style: italic;
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono/JetBrainsMono-BoldItalic.woff2") format("woff");
+  font-weight: 700;
+  font-style: italic;
 }
 
 @font-face {
-    font-family: "JetBrains Mono";
-    src: url("/fonts/JetBrainsMono/JetBrainsMono-ExtraBold.woff2") format("woff");
-    font-weight: 800;
-    font-style: normal;
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono/JetBrainsMono-ExtraBold.woff2") format("woff");
+  font-weight: 800;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: "JetBrains Mono";
-    src: url("/fonts/JetBrainsMono/JetBrainsMono-ExtraBoldItalic.woff2") format("woff");
-    font-weight: 800;
-    font-style: italic;
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono/JetBrainsMono-ExtraBoldItalic.woff2")
+    format("woff");
+  font-weight: 800;
+  font-style: italic;
 }
 
 @font-face {
-    font-family: "JetBrains Mono";
-    src: url("/fonts/JetBrainsMono/JetBrainsMono-ExtraLight.woff2") format("woff");
-    font-weight: 200;
-    font-style: normal;
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono/JetBrainsMono-ExtraLight.woff2") format("woff");
+  font-weight: 200;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: "JetBrains Mono";
-    src: url("/fonts/JetBrainsMono/JetBrainsMono-ExtraLightItalic.woff2") format("woff");
-    font-weight: 200;
-    font-style: italic;
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono/JetBrainsMono-ExtraLightItalic.woff2")
+    format("woff");
+  font-weight: 200;
+  font-style: italic;
 }
 
 @font-face {
-    font-family: "JetBrains Mono";
-    src: url("/fonts/JetBrainsMono/JetBrainsMono-Italic.woff2") format("woff");
-    font-weight: 400;
-    font-style: italic;
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono/JetBrainsMono-Italic.woff2") format("woff");
+  font-weight: 400;
+  font-style: italic;
 }
 
 @font-face {
-    font-family: "JetBrains Mono";
-    src: url("/fonts/JetBrainsMono/JetBrainsMono-Light.woff2") format("woff");
-    font-weight: 300;
-    font-style: normal;
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono/JetBrainsMono-Light.woff2") format("woff");
+  font-weight: 300;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: "JetBrains Mono";
-    src: url("/fonts/JetBrainsMono/JetBrainsMono-LightItalic.woff2") format("woff");
-    font-weight: 300;
-    font-style: italic;
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono/JetBrainsMono-LightItalic.woff2")
+    format("woff");
+  font-weight: 300;
+  font-style: italic;
 }
 
 @font-face {
-    font-family: "JetBrains Mono";
-    src: url("/fonts/JetBrainsMono/JetBrainsMono-Medium.woff2") format("woff");
-    font-weight: 500;
-    font-style: normal;
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono/JetBrainsMono-Medium.woff2") format("woff");
+  font-weight: 500;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: "JetBrains Mono";
-    src: url("/fonts/JetBrainsMono/JetBrainsMono-MediumItalic.woff2") format("woff");
-    font-weight: 500;
-    font-style: italic;
-}
-
-
-@font-face {
-    font-family: "JetBrains Mono";
-    src: url("/fonts/JetBrainsMono/JetBrainsMono-Regular.woff2") format("woff");
-    font-weight: 400;
-    font-style: normal;
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono/JetBrainsMono-MediumItalic.woff2")
+    format("woff");
+  font-weight: 500;
+  font-style: italic;
 }
 
 @font-face {
-    font-family: "JetBrains Mono";
-    src: url("/fonts/JetBrainsMono/JetBrainsMono-SemiBold.woff2") format("woff");
-    font-weight: 600;
-    font-style: normal;
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono/JetBrainsMono-Regular.woff2") format("woff");
+  font-weight: 400;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: "JetBrains Mono";
-    src: url("/fonts/JetBrainsMono/JetBrainsMono-SemiBoldItalic.woff2") format("woff");
-    font-weight: 600;
-    font-style: italic;
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono/JetBrainsMono-SemiBold.woff2") format("woff");
+  font-weight: 600;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: "JetBrains Mono";
-    src: url("/fonts/JetBrainsMono/JetBrainsMono-Thin.woff2") format("woff");
-    font-weight: 100;
-    font-style: italic;
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono/JetBrainsMono-SemiBoldItalic.woff2")
+    format("woff");
+  font-weight: 600;
+  font-style: italic;
 }
 
 @font-face {
-    font-family: "JetBrains Mono";
-    src: url("/fonts/JetBrainsMono/JetBrainsMono-ThinItalic.woff2") format("woff");
-    font-weight: 100;
-    font-style: italic;
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono/JetBrainsMono-Thin.woff2") format("woff");
+  font-weight: 100;
+  font-style: italic;
 }
 
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono/JetBrainsMono-ThinItalic.woff2") format("woff");
+  font-weight: 100;
+  font-style: italic;
+}
 
 /****************************/
 /* Public Sans              */
 /****************************/
 @font-face {
-    font-family: "Public Sans";
-    src: url("/fonts/PublicSans/PublicSans-Bold.woff2") format("woff2");
-    font-weight: 700;
-    font-style: normal;
-
+  font-family: "Public Sans";
+  src: url("/fonts/PublicSans/PublicSans-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: "Public Sans";
-    src: url("/fonts/PublicSans/PublicSans-BoldItalic.woff2") format("woff");
-    font-weight: 700;
-    font-style: italic;
-
+  font-family: "Public Sans";
+  src: url("/fonts/PublicSans/PublicSans-BoldItalic.woff2") format("woff");
+  font-weight: 700;
+  font-style: italic;
 }
 
 @font-face {
-    font-family: "Public Sans";
-    src: url("/fonts/PublicSans/PublicSans-ExtraBold.woff2") format("woff");
-    font-weight: 800;
-    font-style: normal;
-
+  font-family: "Public Sans";
+  src: url("/fonts/PublicSans/PublicSans-ExtraBold.woff2") format("woff");
+  font-weight: 800;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: "Public Sans";
-    src: url("/fonts/PublicSans/PublicSans-ExtraBoldItalic.woff2") format("woff");
-    font-weight: 800;
-    font-style: italic;
-
+  font-family: "Public Sans";
+  src: url("/fonts/PublicSans/PublicSans-ExtraBoldItalic.woff2") format("woff");
+  font-weight: 800;
+  font-style: italic;
 }
 
 @font-face {
-    font-family: "Public Sans";
-    src: url("/fonts/PublicSans/PublicSans-ExtraLight.woff2") format("woff");
-    font-weight: 200;
-    font-style: normal;
+  font-family: "Public Sans";
+  src: url("/fonts/PublicSans/PublicSans-ExtraLight.woff2") format("woff");
+  font-weight: 200;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: "Public Sans";
-    src: url("/fonts/PublicSans/PublicSans-ExtraLightItalic.woff2") format("woff");
-    font-weight: 200;
-    font-style: italic;
+  font-family: "Public Sans";
+  src: url("/fonts/PublicSans/PublicSans-ExtraLightItalic.woff2") format("woff");
+  font-weight: 200;
+  font-style: italic;
 }
 
 @font-face {
-    font-family: "Public Sans";
-    src: url("/fonts/PublicSans/PublicSans-Italic.woff2") format("woff");
-    font-weight: 400;
-    font-style: italic;
+  font-family: "Public Sans";
+  src: url("/fonts/PublicSans/PublicSans-Italic.woff2") format("woff");
+  font-weight: 400;
+  font-style: italic;
 }
 
 @font-face {
-    font-family: "Public Sans";
-    src: url("/fonts/PublicSans/PublicSans-Light.woff2") format("woff");
-    font-weight: 300;
-    font-style: normal;
+  font-family: "Public Sans";
+  src: url("/fonts/PublicSans/PublicSans-Light.woff2") format("woff");
+  font-weight: 300;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: "Public Sans";
-    src: url("/fonts/PublicSans/PublicSans-LightItalic.woff2") format("woff");
-    font-weight: 300;
-    font-style: italic;
+  font-family: "Public Sans";
+  src: url("/fonts/PublicSans/PublicSans-LightItalic.woff2") format("woff");
+  font-weight: 300;
+  font-style: italic;
 }
 
 @font-face {
-    font-family: "Public Sans";
-    src: url("/fonts/PublicSans/PublicSans-Medium.woff2") format("woff");
-    font-weight: 500;
-    font-style: normal;
+  font-family: "Public Sans";
+  src: url("/fonts/PublicSans/PublicSans-Medium.woff2") format("woff");
+  font-weight: 500;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: "Public Sans";
-    src: url("/fonts/PublicSans/PublicSans-MediumItalic.woff2") format("woff");
-    font-weight: 500;
-    font-style: italic;
+  font-family: "Public Sans";
+  src: url("/fonts/PublicSans/PublicSans-MediumItalic.woff2") format("woff");
+  font-weight: 500;
+  font-style: italic;
 }
 
 @font-face {
-    font-family: "Public Sans";
-    src: url("/fonts/PublicSans/PublicSans-Regular.woff2") format("woff");
-    font-weight: 400;
-    font-style: normal;
+  font-family: "Public Sans";
+  src: url("/fonts/PublicSans/PublicSans-Regular.woff2") format("woff");
+  font-weight: 400;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: "Public Sans";
-    src: url("/fonts/PublicSans/PublicSans-SemiBold.woff2") format("woff");
-    font-weight: 600;
-    font-style: normal;
+  font-family: "Public Sans";
+  src: url("/fonts/PublicSans/PublicSans-SemiBold.woff2") format("woff");
+  font-weight: 600;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: "Public Sans";
-    src: url("/fonts/PublicSans/PublicSans-SemiBoldItalic.woff2") format("woff");
-    font-weight: 600;
-    font-style: italic;
+  font-family: "Public Sans";
+  src: url("/fonts/PublicSans/PublicSans-SemiBoldItalic.woff2") format("woff");
+  font-weight: 600;
+  font-style: italic;
 }
 
 @font-face {
-    font-family: "Public Sans";
-    src: url("/fonts/PublicSans/PublicSans-Thin.woff2") format("woff");
-    font-weight: 100;
-    font-style: normal;
+  font-family: "Public Sans";
+  src: url("/fonts/PublicSans/PublicSans-Thin.woff2") format("woff");
+  font-weight: 100;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: "Public Sans";
-    src: url("/fonts/PublicSans/PublicSans-ThinItalic.woff2") format("woff");
-    font-weight: 100;
-    font-style: italic;
+  font-family: "Public Sans";
+  src: url("/fonts/PublicSans/PublicSans-ThinItalic.woff2") format("woff");
+  font-weight: 100;
+  font-style: italic;
 }
 
 /* end fonts */
