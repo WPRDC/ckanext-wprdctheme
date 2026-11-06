@@ -190,6 +190,14 @@ dataset_fields:
     display_property: dc:contributor
     display_snippet: email.html
 
+  - field_name: canonical_view_id
+    label: Canonical View
+    form_snippet: canonical_view.html
+    display_snippet: null
+    validators: ignore_empty unicode_safe wprdc_canonical_view
+    help_text: A view of one of this dataset's resources to show on the dataset page,
+      below the description. Available once the dataset has resources with views.
+
 resource_fields:
 
   - field_name: url

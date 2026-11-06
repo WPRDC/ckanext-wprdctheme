@@ -135,6 +135,17 @@
   }
 }
 
+.canonical-view .resource-view {
+  @apply mt-0;
+}
+
+.canonical-view .resource-view p.desc {
+  @apply m-0;
+}
+
+.ckanext-datapreview iframe {
+  @apply border-2 border-black p-0;
+}
 .spatialdata-badge {
   @apply rounded-md! border-2 border-black text-sm;
   @apply bg-wprdc-300 text-stone-600;
@@ -762,6 +773,12 @@ div.actions ul.justify-content-end {
 
 .module-resource .module-content {
   @apply m-0 p-5;
+}
+
+/* Canonical view on the dataset page: no Fullscreen/Embed buttons; they
+   stay available on the resource page. */
+.canonical-view .resource-view .actions {
+  @apply hidden;
 }
 
 .module-content h1.page-heading {

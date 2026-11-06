@@ -235,6 +235,9 @@
       max-width: 1300px;
     }
   }
+  .m-0 {
+    margin: 0px;
+  }
   .ms-auto {
     margin-inline-start: auto;
   }
@@ -263,11 +266,26 @@
     border-left-style: var(--tw-border-style);
     border-left-width: 0px;
   }
+  .px-0 {
+    padding-inline: 0px;
+  }
 }
 @layer base {
   *, ::after, ::before, ::backdrop, ::file-selector-button {
     border-color: var(--color-gray-200, currentcolor);
   }
+}
+.canonical-view .resource-view {
+  margin-top: 0px;
+}
+.canonical-view .resource-view p.desc {
+  margin: 0px;
+}
+.ckanext-datapreview iframe {
+  border-style: var(--tw-border-style);
+  border-width: 2px;
+  border-color: var(--color-black);
+  padding: 0px;
 }
 .spatialdata-badge {
   border-radius: var(--radius-md) !important;
@@ -1167,6 +1185,9 @@ div.actions ul.justify-content-end {
 .module-resource .module-content {
   margin: 0px;
   padding: calc(var(--spacing) * 5);
+}
+.canonical-view .resource-view .actions {
+  display: none;
 }
 .module-content h1.page-heading {
   margin-bottom: 5px;

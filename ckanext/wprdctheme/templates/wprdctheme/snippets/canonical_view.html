@@ -1,0 +1,25 @@
+{#
+  The dataset's canonical view, rendered with CKAN's standard resource view
+  snippet (iframe, Fullscreen and Embed buttons) under a heading that links
+  to its resource.
+
+  pkg - the package dict
+#}
+{% set canonical = h.wprdc_canonical_view(pkg) %}
+{% if canonical %}
+  {% set resource = canonical.resource %}
+  {% set resource_view = canonical.resource_view %}
+  <section class="canonical-view module-content px-0">
+    <h2 class="fs-5 m-0">
+      {{ resource_view.title }}
+      <small class="text-muted fw-normal">
+        &middot;
+        <a href="{{ h.url_for(pkg.type ~ '_resource.read', id=pkg.name, resource_id=resource.id, view_id=resource_view.id) }}">
+          {{ h.resource_display_name(resource) }}
+        </a>
+      </small>
+    </h2>
+    {% snippet "package/snippets/resource_view.html",
+      resource_view=resource_view, resource=resource, package=pkg %}
+  </section>
+{% endif %}

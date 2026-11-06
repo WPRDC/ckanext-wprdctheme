@@ -23,3 +23,8 @@
     </p>
   {% endif %}
 {% endblock %}
+
+{% block package_resources %}
+  {% snippet "wprdctheme/snippets/canonical_view.html", pkg=pkg %}
+  {{ super() }}
+{% endblock %}

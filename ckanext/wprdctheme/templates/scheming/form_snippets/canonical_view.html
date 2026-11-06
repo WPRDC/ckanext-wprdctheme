@@ -1,0 +1,23 @@
+{#
+  Select for the dataset's canonical view: any view of any of its resources.
+  Hidden while the dataset has no views (e.g. when it is first created).
+#}
+{% import 'macros/form.html' as form %}
+
+{%- set view_options = h.wprdc_canonical_view_options(data.id) -%}
+{%- if view_options -%}
+  {%- set options = [{'value': '', 'text': _('None')}] + view_options -%}
+  {% call form.select(
+      field.field_name,
+      id='field-' + field.field_name,
+      label=h.scheming_language_text(field.label),
+      options=options,
+      selected=data[field.field_name] or '',
+      error=errors[field.field_name],
+      classes=['control-medium'],
+      attrs={'class': 'form-control form-select'}
+      )
+  %}
+    {%- snippet 'scheming/form_snippets/help_text.html', field=field -%}
+  {% endcall %}
+{%- endif -%}
