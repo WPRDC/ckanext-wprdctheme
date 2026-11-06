@@ -1,0 +1,25 @@
+{% ckan_extends %}
+
+{% block package_notes %}
+  {{ super() }}
+  {% set steward_name = pkg.data_steward_name %}
+  {% set steward_email = pkg.data_steward_email %}
+  {% if steward_name or steward_email %}
+    <p class="data-steward-contact fw-bold">
+      <i class="fa fa-circle-question" aria-hidden="true"></i>
+      {% if steward_name and steward_email %}
+        {% trans name=steward_name, email=h.mail_to(email_address=steward_email, name=steward_email) %}
+          Direct questions about this dataset to its data steward, {{ name }}, at {{ email }}.
+        {% endtrans %}
+      {% elif steward_email %}
+        {% trans email=h.mail_to(email_address=steward_email, name=steward_email) %}
+          Direct questions about this dataset to its data steward at {{ email }}.
+        {% endtrans %}
+      {% else %}
+        {% trans name=steward_name %}
+          Direct questions about this dataset to its data steward, {{ name }}.
+        {% endtrans %}
+      {% endif %}
+    </p>
+  {% endif %}
+{% endblock %}
