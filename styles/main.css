@@ -135,6 +135,14 @@
   }
 }
 
+.spatialdata-badge {
+  @apply rounded-md! border-2 border-black text-sm;
+  @apply bg-wprdc-300 text-stone-600;
+  @apply px-1 py-0.5;
+  @apply shadow-none hover:shadow-sm;
+  @apply active:bg-white active:shadow-inner;
+}
+
 #terms-dialog {
   /* v4's preflight zeroes margin/padding on every element, which removes the
      browser's `margin: auto` that centers a modal <dialog>. Restore both. */
@@ -637,8 +645,9 @@ ul.pagination > li.disabled a {
   @apply rounded-none border-2 border-black;
   @apply shadow hover:shadow-lg;
   @apply focus:shadow-sm! active:shadow-sm!;
-  @apply hover:bg-primary;
+  @apply hover:border-black! hover:bg-primary! hover:text-black!;
   @apply px-2 py-1;
+  @apply no-underline!;
 }
 
 .btn.btn-light,
