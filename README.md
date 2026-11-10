@@ -81,9 +81,23 @@ tailwindcss -i ./styles/main.css -o ./ckanext/wprdctheme/assets/css/wprdc_theme.
 
 ## Tests
 
-To run the tests, do:
+The tests in `ckanext/wprdctheme/tests` cover the canonical view: its validator, its
+template helpers and the snippet on the dataset page. They fake the model and actions, so
+they need no data, but CKAN still needs an initialised (empty) database to start. Use a
+dedicated test database, never one with real data. `conftest.py` blocks CKAN's
+database-resetting fixtures (`clean_db`, `reset_db` and others) as a further guard.
 
-    pytest --ckan-ini=test.ini
+In the ckan-docker dev container (`ckan_test` is created by the Postgres init scripts):
+
+```bash
+docker compose -f docker-compose.dev.yml exec -w /srv/app/src_extensions/ckanext-wprdctheme ckan-dev sh -c '
+  export CKAN_SQLALCHEMY_URL="${CKAN_SQLALCHEMY_URL%/*}/ckan_test"
+  ckan -c test.ini db init     # once, or after CKAN upgrades
+  pytest --ckan-ini=test.ini ckanext/wprdctheme/tests'
+```
+
+GitHub Actions runs them on every pull request and push to `main`
+(`.github/workflows/test.yml`).
 
 ## Releasing a new version of ckanext-wprdctheme
 
