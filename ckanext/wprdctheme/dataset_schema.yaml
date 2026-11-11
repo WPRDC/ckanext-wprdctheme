@@ -216,3 +216,81 @@ resource_fields:
   - field_name: format
     label: Format
     preset: resource_format_autocomplete
+
+  # ckanext-spatialdata. Its resource form snippet draws the inputs (for
+  # sysadmins only), so none are drawn or displayed here. Keep in step with
+  # spatialdata_modify_resource_schema in ckanext-spatialdata's schema.py.
+  # spatialdata_sysadmin_only keeps the saved value when a non-sysadmin saves,
+  # or when a field isn't sent (e.g. the status fields from the edit form).
+
+  - field_name: spatialdata_active
+    label: Georeferenced
+    form_snippet: null
+    display_snippet: null
+    validators: spatialdata_sysadmin_only boolean_validator
+
+  - field_name: spatialdata_status
+    label: Georeferencing status
+    form_snippet: null
+    display_snippet: null
+    validators: spatialdata_sysadmin_only ignore_empty unicode_safe
+
+  - field_name: spatialdata_last_geom_updated
+    label: Geometries last updated
+    form_snippet: null
+    display_snippet: null
+    validators: spatialdata_sysadmin_only ignore_empty unicode_safe
+
+  - field_name: spatialdata_longitude_field
+    label: Longitude field
+    form_snippet: null
+    display_snippet: null
+    validators: spatialdata_sysadmin_only ignore_empty unicode_safe
+
+  - field_name: spatialdata_latitude_field
+    label: Latitude field
+    form_snippet: null
+    display_snippet: null
+    validators: spatialdata_sysadmin_only ignore_empty unicode_safe
+
+  - field_name: spatialdata_wkt_field
+    label: WKT field
+    form_snippet: null
+    display_snippet: null
+    validators: spatialdata_sysadmin_only ignore_empty unicode_safe
+
+  - field_name: spatialdata_fields_definition
+    label: GeoJSON fields definition
+    form_snippet: null
+    display_snippet: null
+    validators: spatialdata_sysadmin_only ignore_empty convert_to_json_if_string json_object_list
+
+  - field_name: spatialdata_geom_resource
+    label: Geometry resource
+    form_snippet: null
+    display_snippet: null
+    validators: spatialdata_sysadmin_only ignore_empty resource_id_exists
+
+  - field_name: spatialdata_geom_link
+    label: Geometry link
+    form_snippet: null
+    display_snippet: null
+    validators: spatialdata_sysadmin_only ignore_empty spatialdata_geom_link
+
+  - field_name: spatialdata_tile_fields
+    label: Map hover fields
+    form_snippet: null
+    display_snippet: null
+    validators: spatialdata_sysadmin_only ignore_empty spatialdata_field_list
+
+  - field_name: spatialdata_popup_title_field
+    label: Map popup title field
+    form_snippet: null
+    display_snippet: null
+    validators: spatialdata_sysadmin_only ignore_empty unicode_safe
+
+  - field_name: spatialdata_popup_template
+    label: Map popup template
+    form_snippet: null
+    display_snippet: null
+    validators: spatialdata_sysadmin_only ignore_empty unicode_safe
