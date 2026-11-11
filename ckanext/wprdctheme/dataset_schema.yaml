@@ -276,21 +276,3 @@ resource_fields:
     form_snippet: null
     display_snippet: null
     validators: spatialdata_sysadmin_only ignore_empty spatialdata_geom_link
-
-  - field_name: spatialdata_tile_fields
-    label: Map hover fields
-    form_snippet: null
-    display_snippet: null
-    validators: spatialdata_sysadmin_only ignore_empty spatialdata_field_list
-
-  - field_name: spatialdata_popup_title_field
-    label: Map popup title field
-    form_snippet: null
-    display_snippet: null
-    validators: spatialdata_sysadmin_only ignore_empty unicode_safe
-
-  - field_name: spatialdata_popup_template
-    label: Map popup template
-    form_snippet: null
-    display_snippet: null
-    validators: spatialdata_sysadmin_only ignore_empty unicode_safe
